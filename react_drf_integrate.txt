@@ -1,0 +1,43 @@
+-) pip install djangorestframework
+
+-) django-admin startproject projectname
+
+-) cd projectname
+
+-) django-admin startapp app1
+
+-) INSTALLED APPS = [
+          "rest_framework",
+          "app_name"
+        ]
+-) user model
+
+-) serializers.py
+
+-) makemigrations, migrate, superuser
+
+-) views.py
+
+-) project/urls
+
+-) runserver
+
+CORS - cross origin resource share
+
+-) pip install django-cors-headers
+
+-) INSTALLED_APPS = ['corsheaders',]
+
+-) MIDDLEWARE = after sessionmiddleware
+                'corsheaders.middleware.CorsMiddleware'
+
+-) CORS_ORIGIN_WHITELIST = [
+         'http://127.0.0.1:3000',
+         'http://localhost:3000',
+       ]
+
+-)
+]
+
+
+
