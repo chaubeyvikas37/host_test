@@ -1,0 +1,4130 @@
+LRU CACHE
+
+field lookups in django
+templates in django
+getting last 10 employee salary with using select
+how can we implement function of forms in Django, without using forms.
+
+
+
+PYTHON FEATURES :
+
+.) simple and easy
+.) Interpreted and platform-independent 
+.) open-source 
+.) very big library support (ex:  NumPy, Tensorflow, Selenium, OpenCV)
+.) Reduces Maintainence Cost
+
+PYTHON APPLICATIONS :
+.) Data Visualization to create plots and graphical representations.
+.) Data Analytics
+.) AI and MACHINE LEARNING
+.) Web Applications
+.) Handle Databases
+
+Que --> Why Python is a Interpreted Language ?
+     Interpreter -> Here source code is directly converted into machine code.
+     Compiler -> Source Code -> Object Code -> Machine Code
+     Interpreted simply means that your code is simply executed line by line ,
+     Every single code is converted to machine code directly.
+     That is why Python is slow , because it interprets one line at once.     
+     but Compiler complies all the lines at once. Your whole code should be correct for the execution of the program.
+      
+
+class 
+----------
+.) class is a different type entitiy.
+.) class is used to define blueprint or templates
+.) class is a logical representation of methods and variables.
+class are of two types
+.) built in class(developed by python community)(__init__,__str__)
+.) custom class(by user)
+
+objects
+-----------
+.) it is a seperate copy of memory
+.) objects consist of state and behaviour
+.) state changes from object to object, state represents instance variable(state --> instance variables)
+.) but behaviour remains same, behaviour represents methods (behaviour --> methods)
+
+global variable
+-----------------
+.) they can be accessed within and outside the class
+.) they can be used in a file in any function
+print(globals()['x'])
+
+local variable
+---------------
+.) can be accessed only within local function
+.) can be accessed only within the bloc
+
+Input function
+------------------
+.) They are used to get input value from keyboard
+.) They always return a string value
+.) Input function parameter is optional
+
+Self
+------
+.) self always points current object memory.
+.) self points to the memory of the class.
+
+Operators in Python
+--------------------
+
+Python language supports the following types of operators.
+
+1) Arithmetic Operators[+,-,/,*,**(exponential),%(modulus->returns remainder of the division)
+                        ,//(floor division->returns the real value and ignores the decimal part.)]
+
+2) Bitwise Operators --> (AND, OR, XOR, 1's compliment, Binary Left Shift, Binary Right Shift.)
+
+3) Membership Operators
+
+in	     if (a in x):	       Evaluates to true if it finds a variable in the specified sequence and false otherwise.
+not in	If ( b not in x ):	  Evaluates to true if it does not finds a variable in the specified sequence and false otherwise.
+
+4) Identity Operators
+
+is	     x is y	     returns True if the type of the value in y points to the same type in the x.
+is not	x is not y	returns True if the type of the value in y points to a different type than the value in the x
+
+5) Comparison Operators -> These operators are used in determining the relation between the operand on either 
+                           side of the operator.
+
+6) Assignment Operators
+
+7) Logical Operators -> Used to perform similar operations as that of logical gates.
+                        Logical AND, Logical OR, Logical NOT
+
+.) def addition(a,b):
+       result = a+b
+       print(result)
+   addititon(10,20)
+
+   here (a,b) --> parameters
+        (10,20) --> arguments
+
+While Loop
+----------
+.) i = 0 ; (indexing is required)
+.) condition
+.) incremental/decremental -->(This will result in an infinite loop)
+
+For Loop
+--------
+.) it uses for and in as keyword.
+
+__init__.py
+------------
+.) It let's python know that the directory is a python package.
+.) In abscence of this file you cannot import module from other folder into your project.
+
+__init__
+---------
+.) Used as a constructor.
+.) Defined in class.
+.) It runs as soon as an object of a class is instantiated
+
+ex) class Student:
+
+    def __init__(self,name):
+        self.name = name
+
+    def child(self):
+        print(f'The name of the student is:', self.name)
+
+    s1 = Student('Vikas')
+    s1.child()  #The name of the student is: Vikas
+        
+
+RECURSION -> Calling a function within a function.
+------------
+ for n calls tere are n+1 recursive calls
+ whenever we visit a tree in a recursion we visit it from top to bottom and from left to right.
+
+ex -> without terminating condition
+
+
+def func(n):
+    func(n-1)
+    print(n)
+
+func(3)
+
+o/p -> 
+    func(n-1)
+  [Previous line repeated 1022 more times]
+RecursionError: maximum recursion depth exceeded
+
+ex -> with terminating condition
+
+
+
+
+
+Data structures
+-----------------
+.) Data Structures are a way of organizing data so that it can be accessed more efficiently depending upon the situation.
+.) List, Tuples, Sets, Dictionary
+
+Data Types
+-----------
+.) Data types are the classification or categorization of data items.
+.) NUMERIC (Integer, Complex Number, Float)
+.) DICTIONARY
+.) BOOLEAN
+.) SET
+.) SEQUENCE TYPES (Strings, List, Tuple)
+..) type () function is used to determine type of data type.
+
+STRING
+------------
+.) A string is a sequence of characters.
+
+.) In Python, a string is a sequence of Unicode characters. (ASCII and Unicode are some of the popular encodings used.)
+      Encoding -->  conversion of character to a number is called encoding
+
+Strings are immutable..) Strings can be created by enclosing characters inside a single quote or double-quotes.
+   Even triple quotes can be used in Python but generally used to represent multiline strings and docstrings.
+
+.)  This means that elements of a string cannot be changed once they have been assigned.
+
+.) Built functions in string are : enumerate() and len(). strip, lower, upper, concatenation
+     enumerate() --> Enumerate Function contains the index and value of all the items in the string as pairs.
+     len() --> Returns the length (number of characters) of the string.
+
+.)  lower(), upper(), join(), split(), find(), replace() --> These are common python string methods.
+
+   ex : my_string = """Hello, welcome to
+                  the world of Python"""
+        print(my_string)
+   output : Hello, welcome to
+                    the world of Python
+.) indexing --> method to access single character in a string.
+.) slicing --> method used to access multiline characters in a string.
+.) Types of strings-: Single line strings, denoted in ' ' or " ".
+                      Multiline Strings, denoted in """ """.
+
+ex) str1 = ['HELLO WORLD']
+    print(str1[0]) # HELLO WORLD
+    print(str1[5]) # list index out of range
+
+ex) str1 = 'HELLO WORLD'
+    print(str[4]) # O
+    print(str[12]) # list index out of range
+
+    str1[4] = 'S'
+    print(str1) # 'Type Error' 'str' object does not support item assignment
+                   because string do not support indexing.
+    del str1 (It will delete the entire string) 
+
+.) Built-in methods in string
+  ----------------------------
+.)  strip() removes all characters or spaces wether it is at begining or at end.
+    string.strip(characters)  # ( ) means blank space
+
+ex --> str1 = "    pencil    "
+       x = str1.strip()
+       print(x)
+
+.) lower()
+.) upper()
+.) concatenation()
+
+ex --> str3 = 'Hello'
+       str4 = 'Vikas'
+
+       str5 = str3 + str4
+       print(str5) # HelloVikas
+     
+       str6 = str3 + " " + str4
+      print(str6) # Hello Vikas
+
+.) Iterate over the string
+
+ex--> string_name = "Vikasgopal"
+
+      for element in string_name:
+          print(element)
+
+  ans: V
+       i
+       k
+       a
+       s
+       g
+       o
+       p
+       a
+       l
+
+      for element in string_name:
+          print(element,end= " ") # V i k a s g o p a l 
+
+.) TYPES OF ARGUMENTS :
+
+1) Positional Arguments
+.) Position of arguments must be maintained.
+.) Number of parameters must be equal to number of arguments.
+
+
+2) Keyword arguments
+3) Default arguments
+4) Variable length arguments
+
+
+List
+-------
+.) Mutable(Can be modified at the run-time), supports Heterogenous data structure, supports positive and negative indexing,
+    maintain insertion order ,supports slicing, ordered data structure, allows duplicate elements.
+.) Append(adds an element at the end). Append can add any object which can be Integer, String, List, Tuple etc.
+   The length of the list itself will increase by one.
+
+ex --> list31 = [3,2,1]
+
+       list31.append('AB')
+       print(list31)
+      
+ans -> [3, 2, 1, 'AB']
+
+ex --> list33 = [8,9,10]
+       list31.append(list33)
+       print(list31)
+
+ans -> [3, 2, 1, [8,9,10]] 
+
+ex --> list31.append(4)
+       print(list31)
+
+ans -> [3, 2, 1, 4]
+
+.) Extends(adds element of  list at the end). Objects which are iterable only gets added here i.e. String or List.
+   The length of the list will increase by however as many elements that were in the iterable argument.
+ex --> list32 = [7,6,5]
+
+       list32.extend('cd')
+       print(list32)
+
+ans -> [7, 6, 5, 'c', 'd']
+
+ex --> list34 = [11,12,13]
+       list32.extend(list34)
+
+ans -> [3, 2, 1, 11, 12, 13]
+
+ex --> list32.extend(4)
+       print(list32)
+
+ans -> TypeError : 'int' object is not iterable
+       Since 4 is mutable and integer object is not iterable we get an error here.
+
+.) Insert(adds element at a particular index number)
+.) Copy(returns copy of the list)
+.) Remove(Removes the first element with specified value)
+.) Index(Returns index of first element with specified value)
+.) Sort(Ascending order)
+.) Pop(Remove element at specified location) (Removes last element in the set)
+.) count()
+.) Reverse()
+.) Clear()
+
+Tuple
+-----------
+.) Immutable, Heterogenous data structure, maintains insertion order, supports +ve & -ve indexing, supports slicing, 
+    ordered data structure, allows dduplicate elements.
+.) supports only indexing and count.
+.) Used for memory intensive task(if we are certain that fixed amount of data is coming in and 
+   fixed amount of data is going out, we use tuple.)
+
+ex -: l1 = [1,2,3, (5,6)] --> we cannot modify tuple inside the list.
+
+ex -: l2 = ([1,2,3],"elephant")
+      l2.append(4)
+      print(l2)
+output --> 
+    l2.append(4)
+    AttributeError: 'tuple' object has no attribute 'append'
+
+ex -: l2 = ([1,2,3],"elephant")
+      l2[0].append(4)
+      print(l2)
+output -->
+      ([1, 2, 3, 4], 'elephant')--> attributes of list donot change , even if it is inside tuple.
+
+
+Que : Can we use list or tuple as a key in dictionary ?
+Ans -> .) No, List can't be used as key in dictionary. (Unhashable type error.)
+       .) Yes, Tuple can be used as key in dictionary.
+       .) No, Tuple containing List can't be used as a key in dictionary.  
+        Keys are used in dictionary so that it can be uniquely identified. So we use key always as immutable.
+        Tuples can be used as keys if they contain only strings, numbers or tupes.
+        If tuple contains any mutable object directly or indirectly , it cannot be used as a key.
+        Lists can be modified in place using index assignments, or methods like append() and extend(), hence can't be used as keys.
+
+Set
+--------
+.) Mutable but stores immutable data, Heterogenous data structure, donot allow duplicate elements, donot support indexing,
+   slicing, donot maintain insertion order.
+.) Append(in list) --> Add(in set)
+.) Extend(in list) --> Update(in set)
+.) Remove() --> Remove specified element from the set(else throws keyerror).
+.) Discard() --> Remove specified element from the set(else if element is not present it throws None).
+.) Pop() --> Removes the last element from the set.
+.) FrozenSet() --> It is a modified immutable version of set.
+                   Built-in function which converts mutable object into immutable object.
+                   S = {10,20,30}
+                   fs = frozenset(s)
+                   s1 = {40, 50, 60, fs}
+                   print(S1)
+          output-> {frozenset({10, 20, 30}), 11, 12, 13}
+
+.) Copy()
+.) Clear()
+.) difference_update() --> If there are two sets A and B:
+                              Removes the items in A that are also included in B.
+.) difference() --> Returns a set that contains difference between two or more sets.
+
+.) intersection_update() --> If there are two sets A and B:
+                              Removes items in set A that are not present in set B.
+.) intersection() --> Returns a set , that is intersection of two or more sets.
+.) isdisjoint() --> Returns wether two sets have a intersection or not.
+.)* issubset() --> Returns wether another set contains this set or not.
+.) issuperset() --> Returns wether this set contains another set or not.
+.) symmetric_difference() --> Returns a set with the symmetric difference of two sets.
+.) symmetric_difference_update() --> Inserts the symmetric difference of two sets.
+.) update() --> Update the set with another set, or any other iterable.
+            
+
+Dictionary
+---------------
+.) Mutable, Heterogenous data structure, Maintains insertion order, Keys(immutable, unique, duplicate not allowed ):
+  Values, supports indexing, do not support slicing.
+
+.) my_dict1 = {10:{1:"abc"}}
+   print(my_dict1) #{10: {1: 'abc'}}
+
+.) my_dict2 = {{1:"abc"}:"amar"}
+   print(my_dict2) # TypeError: unhashable type: 'dict'
+                   # We cannot use dictionary as key, but we can use it as value.
+
+
+
+.) get -> returns the value of specified key(else none)
+.) keys(), values(), items() [returns all the keys, values, items]
+.) pop() --> removes key-value pair with specified key
+.) popitems() --> removes last inserted key value pair.
+.) clear() --> removes all key-value pair
+.) copy() --> returns copy of existing dictionary.
+.) fromkeys() --> creates new dictionary
+                  key = ['mumbai', 'pune', 'nagpur']
+                  value = 'city'
+                  dict1 = dict.fromkeys(key:value)
+                  print(dict1)
+          output->{'mumbai': 'city', 'pune': 'city', 'nagpur': 'city'}
+
+ex2: key = ["Mumbai", "Delhi", "Pune"]
+     value = ["city","Tehsil","Village"]
+     dict1 = dict.fromkeys(key,value)
+     print(dict1)
+
+ans: {'Mumbai': ['city', 'Tehsil', 'Village'], 'Delhi': ['city', 'Tehsil', 'Village'], 'Pune': ['city', 'Tehsil', 'Village']} 
+
+
+.) setdefault() --> Returns the values of the specified key , if value not present then it returns None.
+
+   dict1 = {"Pune":"Maharastra", "Indore":"Madhya Pradesh", "Gurugram":"Haryana"}
+   print(dict1.setdefault("Pune")) #Maharastra
+   print(dict1.setdefault("Varanasi")) # None
+
+.) Zip() --> If key, value are given , it can create a dictionary with key value pair.
+
+ex: key = ["Mumbai", "Delhi", "Pune"]
+    value = ["city","Tehsil","Village"]
+    dict2 = dict(zip(key,value))
+    print(dict2) 
+ans: {'Mumbai': 'city', 'Delhi': 'Tehsil', 'Pune': 'Village'}
+
+If we want to concatinate two lists we use concatinate method.
+if we want to merge two dictionaries we use update method.
+
+Que -> Why Python is a dynamically typed language ?
+       Python don't have any problem even if we don't declare the type of variable.
+       It states the kind of variable in the runtime of the program.
+       Python also takes care of the memory management which is crucial in programming. 
+       Hence, python is a dynamically typed language.
+
+Break, Continue, Pass
+------------------------
+
+Break -: .) Terminates the loop or statement.
+         .) Pass the control to the next statement.
+
+     ex: for i in range(0,10):
+             if i == 7:
+                 break
+             print(i, end=" ")
+     output : 0 1 2 3 4 5 6 
+
+
+Continue -: .) Forces the execution of the next iteration.
+               When a specific condition meets , instead of terminating it.
+
+      ex: for i in range(0,10):
+              if i ==7:
+                  continue
+              print(i, end=" ")
+      output: 0 1 2 3 4 5 6 8 9 
+
+Pass -: .) Considered as null operation as nothing happen, when we execute the pass statement.
+        .) Helps to the the code syntatically and wants to skip the execution.
+
+is, not and in operators
+----------------------------
+
+is --> returns true value, when both operands are true.
+       Use the is operator to check two variables for identity and == to check for two variables for equality.
+
+not --> returns the inverse of boolean value based upn the operands.
+
+In --> helps to check if the element is present in given sequence or not. 
+
+split ->   Split method breaks up the string at the specified seperator and returns a list of strings.
+---------  
+    Example : sentence = "India is my country"
+              output = sentence.split()
+              print(output)
+      output->['India', 'is', 'my', 'country'] 
+
+join -> Used to join a list of strings to give a single string.
+-------                   or
+        The join() is a string method which returns a string concatenated with the elements of an iterable.
+           The join() method takes all items in an iterable and joins them into one string.
+           If iterable contains any non-string values, it raises a TypeError exception.
+
+    Example : sentence = "This" , "is" , "a" , "string"
+              output1 = " ".join(sentence)
+              print(output1)
+      output->This is a string
+
+
+ 
+Built-in functions 
+----------------------
+.) Max()
+.) Min()
+.) Sum()
+
+.) __str__
+.) Special Method
+.) This method will will get called automatically , whenever we call that class object.
+.) Purpose of this method is to return the object information in string format.
+
+.) __init__(constructor)
+.) special method
+.) Purpose of constructor is initialising the instance variable at the time of object creation.
+.) This method will get called automatically when a new class object is created.
+
+or
+
+.) __init__(constructor)
+.) special method
+.) allocates memory to the new object as soon as it is created.
+.) This method will get called automatically when a new object is initiated.
+
+.) Control methods in python
+.) Difference between for loop and while loop
+.) Membership operator
+
+------------------------------------------------------------------
+
+
+OOPS(object oriented programming)
+.) paradigm --> It is a bunch or a set of rules which we need to follow while writing a code.
+
+Inheritance, Polymorphism, Encapsulation, Abstraction
+
+Inheritance -> .) Allows one class to gain all the members (say attributes and methods) of another class.
+               .) We can implement real-world relationships
+               .) Helps to improve code-reusability
+               .) We can write clean and readable code.
+            
+
+mro(method resolution order) - sequence in which python is going to resolve methods in class hierarchy.
+      ** object class is the universal parent of each class.
+      .) It follows i) Top - Bottom Approach (ex: class(A):
+                                                    pass
+                    
+                                                  class B(A):
+                                                    pass
+
+                                                  class C(B,A):
+                                                    pass
+
+                                                  c = C()
+                                                  c.method() ) mro -> C->B->A
+\
+                   ii) Left - Right Approach (ex: def classC(B,A)):  -> mro is c->B->A
+
+                   Left to Right approach is given more priority than Bottom to Top.
+
+                                                  class A:
+                                                    pass
+                    
+                                                  class B:
+                                                    pass
+
+                                                  class C(A,B):
+                                                    pass
+
+                                                  class D(C,B):
+                                                    pass
+
+                                                  d = D()
+                                                  d.method()   D->C->A->B
+
+                   
+               
+
+
+issubclass() --> This method checks the relationship between two(parent) classes.
+ 
+isinstance method() --> It is used to check the relationship between the object and the class.
+
+Diamond form of inheritance --> Multiple + Hierarichal
+
+Polymorphism --> poly - many
+                 morphism - forms
+                 .) Over-loading -->(Method overloading[python donot support it.] & Operator Overloading)
+                 .) Simply means that single entity is behaving is different manner under certain circumstances.
+
+                 .) MethodOver-riding - child class over rides the parent class method of same name, parameter and return type.
+
+                   super() --> If both child and parent class have the same method name,
+                               then child class can access the property of parent class using same method under same keyword.
+                               .) We cannot access the variable using super keyword.
+
+                 .) Duck Typing --> In python it is used for dynamic typing
+                                    .) It can be derived from a common phrase, 
+                                       "If it walks like a duck, If it talks like a duck, then it is a duck"
+                                    .) Here behaviours are compared rather than the object.
+                                    .) Here we are not checking internally, if the two objects are same,
+                                        rather using known external behaviour to match the two objects.
+
+                                     class Duck:
+                                         def legs(self):
+                                            print("Duck has two legs")
+
+                                         def talk(self):
+                                            print("Duck quacks")
+
+                                     class Dog:
+                                         def legs(self):
+                                            print("Dog has four legs")
+
+                                         def talk(self):
+                                            print("Dogs barks")
+
+                                     d1 = Duck()
+                                     d2 = Dog()
+
+                                     def interface(obj):
+                                        obj.talk()
+                                        obj.legs()
+
+                                     interface(d1)
+                                     interface(d2)
+
+                            output-> Duck quacks
+                                     Duck has two legs
+                                     Dogs barks
+                                     Dog has four legs
+
+
+
+
+                  .) Abstraction --> Python do not support Abstraction by default.
+                                     .) It is used in python using Abstraction Class & Abstraction Methods.
+                                     .) To create an Abstract Class, we need to inherit it from Abstract Base Class.               
+                                          In parent class we only define Abstract Methods , but we need implement it
+                                          in child class(because if not implemented in child class, child class will itself become
+                                           Abstract class.)
+ 
+                                           
+
+                                        from abc import ABC, abstractmethod
+
+                                        class vehicle(ABC):
+
+                                            @abstractmethod
+                                            def mileage(self):
+                                                pass
+
+                                            @abstractmethod
+                                            def speed(self):
+                                                pass
+
+                                        class Tata(vehicle):
+
+                                            def mileage(self):
+                                               print("Mileage is 12km")
+
+                                            def speed(self):
+                                               print("speed is 160km/hr")
+
+                                        class Mahindra(vehicle):
+
+                                            def mileage(self):
+                                                print("Mileage is 15km")
+
+                                            def speed(self):
+                                                print("Speed is 140km/hr")
+
+                                        t1 = Tata()
+                                        t1.mileage()
+                                        t1.speed()
+
+                                        m1 = Mahindra()
+                                        m1.mileage()
+                                        m1.speed()
+                                        #TypeError: Can't instantiate abstract class Mahindra with abstract method speed
+                                                    (if speed is not derived from parent class)
+
+                             output->   Mileage is 12km
+                                        speed is 160km/hr
+                                        Mileage is 15km
+                                        Speed is 140km/hr
+
+
+                   .) Encapsulation --> Wrapping of data in single entity to restrict the access of data members. 
+                                        3 Access specifiers : Public, Protected, Private.
+
+                                    ex: class Animal:
+
+                                            a = 233
+                                            _b = 234
+                                            __c = 235
+
+                                            def cow(self):
+                                               print("Cow is the holy animal of India.")
+
+                                            def _goat(self):
+                                               print("Goat is used by farmers in India.")
+
+                                            def __camel(self):
+                                               print("Camel is known as the ship of the desert.")
+
+                                            def setc(self,m):   #line 195 to 199 , 214,215 setter-getter method
+                                            self.__C = m
+
+                                            def getc(self):
+                                            return self.__C
+
+
+                                        an1 = Animal()
+                                        print(an1.a) -->233
+                                        print(an1._b) --> 234
+                                       #print(an1.__c) AttributeError: 'Animal' object has no attribute '__c'
+                                        print(an1._Animal__c) #name-mangling --> 235
+
+                                        an1.cow() --> Cow is the holy animal of India.
+                                        an1._goat() --> Goat is used by farmers in India.
+                                       #an1.__camel() AttributeError: 'Animal' object has no attribute '__camel'
+                                        an1._Animal__camel() #name-mangling--> Camel is known as the ship of the desert.
+
+                                        print(dir(an1))
+
+                                        an1.setc(230)
+                                        print(an1.getc()) --> 230
+
+.) Difference between Absrtraction and Encapsulation
+ans --> Abstraction
+       -------------
+     .) Works on design level.
+     .) Used to hide unnecessary data and show only relevant data.
+     .) Python donot support Abstraction , we need to import it from Abstract Base Class.
+     .) Abstraction is hiding implemantation with tthe help of interface and an abstract class.
+       Encapsulation
+      ---------------
+     .) Works on Application level.
+     .) Mechanism for hiding code and data together from the outside world or misuse.
+     .) Encapsulation is supported using Public, Private and Protected specifiers.
+     .) Encapsulation is hiding the data with the help of getter and setter.
+
+
+Que) -> Is python a Fully Object Oriented Language ?
+ans ->  Python supports OOPs, but it is not fully object oriented, because code in python can also be written
+         without creating classes.
+        While it borrows heavily from the OOP language, it is also at the same time functional, procedural imperative, 
+         reflective.
+        Python doesnot support strong encapsulation, which is only one of many features associated with the term "object-oriented".
+        Python Doesnot support interfaces.
+
+Iterator --> An iterator is an object which contains countable number of values.(Integer object is not iterable)
+(object)     Two built-in iterators of python is .)for loop .)while loop.
+             An iterator in python is used to iterate over the iterable object.
+             To define custom iterator we need to implement two methods :-
+             __iter__
+             __next__
+             The iter method in python takes iterable object as input and returns iterator object as output.
+             By using next method , we can iterate over that iterator object.
+
+Generator --> Generators are a simple functions which return iterable set of elements one at a time. 
+(function)    Generator is a special function which donot return a single value, but returns iterator object.
+              or
+              Generators are simple functions which returns iterable set of items. 
+              It can generate as many values as it wants. 
+
+        ex: def gen():
+               for i in range(1,4):
+                   yield i
+
+            num = gen()
+
+            print(next(num))
+            print(next(num))
+            print(next(num))
+            1
+            2
+            3
+
+            print(next(num)) # StopIteration
+
+            
+            for i in num:
+                print(i)
+            1
+            2
+            3
+
+
+
+Decorator  --> Function used to extend the functionality of existing function without modifying its structure.
+(function)
+
+ex -> def decorator_fun(fun):
+    def inner_deco(a,b):
+        if b==0:
+            print("Division is not possible")
+        else:
+            fun(a,b) #fun = div
+    return inner_deco
+
+    @decorator_fun
+    def div(a,b):
+        print(f"Division of the number is {a/b}")
+    div(20,0) # Division is not possible
+    div(20,10) # 2
+
+
+----------------------------------------------------------------
+
+EXCEPTION HANDLING --> 
+   EXCEPTION:
+          .) Unwanted or unexpected error that occurs at the runtime.
+          .) Disturbs the normal flow of program execution.
+          .) Due to wrong input from client side.
+   ERROR:
+        .) Occurs due to mistake of the developer.
+        .) We cannot handle it.(syntax error)
+
+   To handle the runtime exception, python has provided the try-except block.
+
+       try --> doubtful code due to which an exception can occur is written in try block.
+
+       except --> The exceptions that occur in try block are handled in the except block.
+
+  ex: try:
+         a = int(input("Enter the value of a: "))
+         b = int(input("Enter the value of b: "))
+
+         except ValueError as e:
+            print("An exception has occured")
+         else:
+            result = a+b
+            print(f"The addition is : {result}")
+
+    Either except block will occur or else, but both will never occur simultaneously.
+    Try block will occur compulsarily, but except / else will occur depending on input by user.
+    Atleast 1 except block is mandatory after try block. We cannot write else block after try block.
+ 
+       finally block --> FInally block is used to release or reallocate the resources.
+
+            return scenario with finally:
+             cond 1 --> If there is a return statement and no exception occurs.
+                        Then finally occurs after try block.
+             cond 2 --> If there is an exception in try then,
+                          try - except - finally.
+
+   EXCEPTION PROPOGATION:
+              .) Giving a chance to the caller method, to handle the exception, is known as exception propogation.
+              .) Caller Method is also called Functional Call.
+
+   ex: 
+      def div():
+
+         a = int(input("Enter the value of a: "))
+         b = int(input("Enter the value of b: "))
+         result = a/b
+         print("Result is :", result)
+
+      try:
+          div()
+      except ValueError as e:
+          print("Please check the input")
+      except ZeroDivisionError as e:
+          print("Any input other than zero is acceptable")
+      finally:
+          print("Program Ends.")
+
+
+   Custom Exceptions in Python:
+              To define a custom exception, we need to create a class and inherit it from base exception or 
+               exception parent class.
+              ex: class AgeValidation(BaseException):
+
+      Raise(keyword): It is used to raise an exception that means, we are generating an exception with help of raise keyword.
+
+------------------------------------------------------------
+      
+
+File --> A file is a contagious set of bytes used to store data permanently on the disk.
+
+Output --> It is a temporary data stored in RAM.
+
+          In python built in function open is provided to open the file.
+ 
+
+   r mode --> only perform reading operation, cursor position always at begining.
+   w mode --> only perform writing operations & previous data inside the file gets deleted. Cursor position at the begining
+   a mode --> perform writing operations & previous data inside do not get deleted. Cursor position at the end.
+
+   If no mode is mentioned , then by default it is r-mode.
+
+   readline --> reads and returns a single line.
+   readlines --> reads the whole file and returns the output in a list format.
+   writelines --> takes an iterable object as an argument and write the elements in the file.
+
+   x-mode --> creates a new file.
+   seek --> used to shift the cursor position.
+   tell --> tells the current cursor position.
+   close method --> used to transfer data from buffer memory to notepad.
+
+   fh.close() --> After close instruction , we cannot perform any operation on that file.
+
+Internal Buffer Memory -->
+                    If we want to write any data from python to notepad , data is not transffered directly from
+                    python file to notepad, but instead first it is transffered to Buffer Memory. from Buffer memory it is
+                    transffered to Notepad for which CLOSE method is used. 
+
+Que --> What if we don't use WITH statement?
+
+ans -> If we don't use "WITH" statement, we need to close the opened file manually , by using close().
+        .) By default , two internal functions are called in "WITH" Statement.
+           .__enter__() is called by the with statement to enter the runtime context.
+           .__exit__() is called when the execution leaves the with code block.
+
+# without with
+  file = open("hello.txt", "w")
+  file.write("Hello, World !")
+  file.close()
+
+# with open("hello.txt","w") as file:
+  file.write("Hello, World!")
+
+
+----------------------------------------------------------------------- 
+
+
+MULTI_THREADING --> 
+       Multi -> Many
+       Threading -> Multiple Threads (Threads--> small component of a process.)
+
+       A thread is a lightweight sub process or the smaller unit of a process.
+
+    Multi Threading --> Technique by which multiple threads can run concurrently by rapidly switching between threads. 
+ 
+ CONTEXT SWITCHING :
+          Process of storing the state of a process of thread so that it can be restored and 
+          resume the execution at a later point.
+ 
+ Python donot support multithreading.
+
+ To achieve multithreading in Python, thread class in the threading module is provided.
+
+ Ways to create threads in Python:
+
+   i) creating an object of thread class.
+  ii) creating a child class and inheriting it from a Thread class.
+ iii) creating a child class without inheriting the  thread class.
+
+ SYNCHRONISATION:
+      Raise Condition -> occurs when multiple threads use the same resources and the threads are making 
+      changes in the resource.
+
+      'Join Thread' keeps the threads on waiting, till the current thread execution is completed.
+
+ 
+ --) How Multithreading is achieved in Python ?
+     .)Python has a miulti-threading package but if you want to multi-thread to speed up your code.
+     .)Python has a construct called the Global Interpreter Lock(GIL). This GIL makes sure taht only one of your 
+       'threads' can execute at any one time. A thread acquires the GIL, does a little work, 
+       then passes the GIL onto the next thread.
+     .)This happens very quickly so the human eye it may seem like your threads are executing in parallel, 
+       but they are just taking turns using the same CPU core.
+     .)All this GIL passing adds overhead to execution.
+   we can also make use of multi-processing (it makes use of all cores and run parallel jobs on all of them.)
+       import multiprocessing.
+       import threading(for multithreading)
+
+--) How can the ternary operators be used in python?
+    .) The Ternary operator is the operator that is used to show the conditional statements.
+    .) This consists of the true or false values with a statement that has to be evaluated for it. 
+
+     syntax --> [on_true] if [expression] else [on_false]
+                x,y = 25,50
+                big = x if x < y else y
+     ex : a,b = 23, 50
+          big = a if a > b else b
+          print(big)
+          output --> 50
+
+ --) What is monkey patching in python?
+     In Python, the term monkey patch only refers to dynamic modifications of a class or module at runtime.(check example in youtube) 
+------------------------------------------------------------
+que --> sorting algorithm for a numerical dataset in python
+
+['1', '5', '3', '12', '7']
+
+li = ['1', '5', '3', '12', '7']
+li.sort()
+print(li)
+ans --> ['1', '12', '3', '5', '7']--> here it applies on ASCII characters, hence we get different outputs
+
+lii = ['1', '5', '3', '12', '7']
+l3 =[int(i) for i in li]
+print(l3)(ans--> [1, 12, 3, 5, 7])
+
+l3.sort()
+print(l3)
+ans --> [1, 3, 5, 7, 12]
+-------------------------------
+
+Comprehension --> Shortest way of generating new sequences.
+                   There are 4 types of comprehensions :- LIST, SET, DICTIONARY, GENERATOR
+
+LIST COMPREHENSION : 
+                   syntax1 (Normal Expression)
+                   -> [exp for var in iterable]
+               ex: nums = [3,6,8,12,14,15]
+
+                   num = []
+
+                   for i in nums: 
+                       num.append(i*i)
+                   print(num)
+             ans-> [9, 36, 64, 144, 196, 225]
+
+     by list comp: [(i*i) for i in nums]
+            ans -> [9, 36, 64, 144, 196, 225]
+                   -----------------------------
+                   syntax2 (If condition)
+                   -> if - [exp for var in iterable (if condition)]
+
+  by list comp if: nums = [3,6,8,12,14,15]
+
+                   num = []
+
+                   for i in nums:
+                      if i%2==0:
+                          num.append(i*i)
+                   print(num)
+     
+             ans-> [36, 64, 144, 196]
+
+
+                   list2 = [(i*i) for i in nums if i%2==0]
+                   print(list2)
+
+             ans-> [36, 64, 144, 196] 
+                   ------------------
+                   syntax3 (Nested if's)
+                   -> if,if - [exp for var in iterable (if cond1) (if cond2)]
+
+    by nested if: nums = [3,6,8,12,14,15]
+
+                  num = []
+ 
+                  for i in nums:
+                      if i%2==0:
+                         if i%3==0:
+                  num.append(i*i)
+                  print(num)
+           ans -> [36, 144]
+
+                  list2 = [(i*i) for i in nums if i%2==0 if i%3==0]
+                  print(list2)
+           ans -> [36, 144]
+                  --------------------
+
+                  syntax4 (If-else)
+                  -> if & else - [exp if (condition) else (expression) for var in iterable]
+
+     by if else: nums = [3,6,7,12,15,18]
+
+                 num = []
+
+                 for i in nums:
+                     if i%2==0:
+                         num.append(i*i)
+                     else:
+                         num.append(i*i*i)
+                 print(num)
+
+          ans -> [27, 36, 343, 144, 3375, 324]
+
+                 # expression if cond1 else expression for variable in iterable
+
+                 num1 = [i*i if i%2==0 else i*i*i for i in nums]
+
+                 print(num1)
+
+          ans -> [27, 36, 343, 144, 3375, 324]
+                 -----------------------------
+
+for nested for loops : list1 = []
+
+                       for i in range(3,5):
+                           for j in range(5,7):
+                               list1.append(i*j)
+                       print(list1)
+ 
+                ans -> [15, 18, 20, 24]
+
+                       #[expression if cond else expression for var in iterable]
+
+                       list2 = [(i*j) for i in range(3,5) for j in range(5,7)]
+                       print(list2) 
+
+                ans -> [15, 18, 20, 24];;  
+
+---------------------------------------------------------------------------------------------
+   
+DICTIONARY COMPREHENSION :
+
+number = [1,2,3,4,5,6]
+
+my_res = {}
+
+for num in number:
+    my_res[num] = num**3
+print(my_res)
+
+print({num:num**3 for num in number})
+
+
+number1 = [1,2,3,4,5,6]
+
+my_res1 = {}
+
+for num1 in number1:
+    if num1%2==0:
+        my_res1[num1] = num1**2
+print(my_res1)
+
+print({ num1:num1**2 for num1 in number1 if num1%2==0 })
+
+
+str1 = "cOding"
+
+my_dict = {}
+
+for char in str1:
+    my_dict[char.upper()] = (ord(char),ord(char.swapcase()))
+print(my_dict)
+
+    
+print({char.upper():(ord(char),ord(char.swapcase())) for char in str1})
+
+
+GENERATOR COMPREHENSION :
+-------------------------
+
+                      
+def gen():
+    for i in range(1,400):
+        if i%50 == 0:
+            yield i
+            
+num = gen()
+print(next(num)) # 50
+
+#[exp for variable in iterable]
+
+print([i for i in range(1,400)  if i%50 == 0])
+
+ans -> [50, 100, 150, 200, 250, 300, 350]
+
+
+def gen1():
+    for i in range(1,40):
+        if i%3 == 0:
+            yield i
+            
+num1 = gen1()
+print(next(num1))
+
+#[exp for variable in iterable]
+
+print([f"{i==1} Is neither even nor odd"f"{i} odd" if (i%3 == 0)  else f"{i} EVEN"  for i in range(1,40)])
+
+['2 EVEN', '3 odd', '4 EVEN', '5 EVEN', '6 odd', '7 EVEN', '8 EVEN', '9 odd', '10 EVEN', '11 EVEN',
+ '12 odd', '13 EVEN', '14 EVEN', '15 odd', '16 EVEN', '17 EVEN', '18 odd', '19 EVEN', '20 EVEN', 
+'21 odd', '22 EVEN', '23 EVEN', '24 odd', '25 EVEN', '26 EVEN', '27 odd', '28 EVEN', '29 EVEN', 
+'30 odd', '31 EVEN', '32 EVEN', '33 odd', '34 EVEN', '35 EVEN', '36 odd', '37 EVEN', '38 EVEN', '39 odd']
+
+
+
+
+
+                ------------------------------------------------------------------------------
+
+Refering --> Two different variables can be assigned with same values.
+             Since memory allocation is same for both variables, changes made in original one is reflected in new.
+
+Cloning --> Here memory locations are different since we create copy of a variable.
+            Clonig is done by [ : ].
+            Changes made in original one is not reflected in new.
+
+Shallow Copy --> Achieved by copy as well as cloning.
+                 Memory locations are different of both original as well as new variable.
+                 Changes made in one is not reflected in new.
+                   for nested structure :-
+                 Changes made in original are reflected in new.
+
+Deep Copy --> Achieved by deep copy method of copy module.
+              Memory allocations are different for both variables.
+              Changes made in original structure are not reflected in new.(for both original as well as nested structure.)
+              Because here new memory locations are allocated for nested structure.
+
+Sort () --> .) Modify the original version of the sequence.
+            .) Applicable on list.
+            .) Method avialable on list.
+
+Sorted () --> .) Creates a new sequence containing a sorted version.
+              .) Applicable on list, tuple, set, dictionary.
+              .) It is a built-in method.   
+
+.) What is the OS module ?
+   OS module provides various functions for interacting with operating system.
+
+Que -> Lambda function
+Ans -> A LAmbda function is an anonymous function or a function having no name.
+       It is a small and restricted function having no more than one line.
+       Just like a normal function, a  Lambda funtion has multiple arguments but one expression. 
+       Syntax:
+          lambda arguments: expression
+  ex: x = lambda a: a+5
+      print(x(5))
+      output: 10
+
+  ex: list1 = [1,2,3,4,5,6]
+      res = list(map(lambda x:x**3,list1))
+      print(res)
+      output: [1,8,27,64,125,216]
+
+
+
+-----------------------------------------------JAVASCRIPT---------------------------------------------------------------
+
+JAVASCRIPT --> Javascript is a client side scripting language.
+               Javascript is event based, functional based and object based programming language.
+               Javascript is used to change the html and css content.
+               Javascript is used to manipulate, calculate and validate the data. iscarbs.com
+
+               this -> shows the current object in javascript.
+
+JAVASCRIPT ARRAYS --> In JavaScript, the array is a single variable that is used to store different elements.
+                      It is often used when we want to store a list of elements and access them by a single variable.
+                      There are two ways to declare an array :       
+                      .) var JS = [ ] --> preffered methods
+                      .) var JS = new Array();
+
+VARIABLES IN JAVASCRIPT --> Variables in JavaScript are containers that hold reusable data
+                            Variables are of three types --> var, let, const.
+                            The value stored in a variable can be changed during program execution.
+     
+       VAR --> .) This keyword id used to declare a variable.
+               .) Variable described with var statement has Function scope.
+               .) We can declare a variable again even if it has been defined previously in the same scope.
+               .) Hoisting is allowed with var.
+
+       LET --> .) The let is a keyword that is used to declare a variable.
+               .) The variables that are defined with let statement have block scope.
+               .) We cannot declare a variable more than once if we defined that previously in the same scope.
+               .) Hoisting is not allowed with let.
+   
+            VAR and LET can be reinitialised , but Const cannot be reinitialised.
+            VAR  and LET can be declared without value but const cannot be declared without value
+
+     CONST --> .) Const is another variable type assigned to data whose value cannot and will not change throughout the script. 
+
+
+CALLBACK FUNCTION --> Calling a function with the help of other function using arguments.
+
+Anonymous Function --> It is a special type of function that do not have any name associated with it.
+                       It can be used as a argument to another function.
+
+Arrow function --> Arrow function allows us to use the compact syntax to create the function expression.
+                   It is used as (=>) fat arrow operator to seperate function body from function operator.
+                     Rules -: 
+                     .) If function doesnot take any arguments then we should use empty paranthesis.
+                     .) If a function has only one argument, then there is no need of paranthesis.
+                     .) Only one statement with return keyword , then there is no need to use return keyword.
+                     .) If a function body has a multiple statement, then you need to put them inside { }.
+
+useEffect() --> It allow us to perform side effect on our application.
+                like fetching data from database or API.
+                It takes two arguments: 
+                 i) Callback function {}
+                ii) Array dependency(optional)[] 
+
+Flux -> In React, componets are connected to flux.
+       .) Has a dispatcher 
+       .) Has a single store
+       .) Mutable State
+       .) Contains state and logic.
+
+Redux -> Container components connect directly.
+         .) NO dispatcher.
+         .) Multiple stores.
+         .) Immutable state
+         .) state and logic are seperate.
+
+
+Routing in React --> React Router is a standard liabrary for routing in React Application.
+                     It enables navigation among views of various components.
+                     And allow us to change in browser url.
+
+Stateful Components -> They are the entities that store the changes that happen and place them in the memory.
+                       The state can be changed, alongside storing information such as past, current and future changes.
+
+refs in React -> Used to store a reference to a single React element or a React component.
+                 This is later returned using the render function.
+                 They are mainly usd for -
+              .) To initiate imperative animations.
+              .) To join third-party DOM liabraries.
+              .) To manage focus and apply media playback.
+
+Disadvantages of using MVC in React:
+ .) memory wastage.
+ .) DOM manipulation is costly.
+ .) Application becomes slow.
+ .) Lots of dependencies are created.
+ .) The complexity of models increases.
+
+controlled components in React.
+ans -> Components that have ability to maintain their state.
+       The data is completely controlled by the parent component.
+       The current value is fetched by making use of props.
+       This is done to notify any change that occurs when using callbacks.
+
+What are the components of redux in React?
+ans -> Action -> An object that describe the call.
+       Reducer -> The state change storage unit.
+       Store -> The state and Object tree storage.
+       View -> Displays data provided by the store.
+
+Advantages of Redux:
+   .) Organized Approach -> Redux requires code to be organised, thereby making it consistent and easy to work with.
+   .) Testing Ability -> Redux functions are small and isolated, making code independent and testable.
+   .) Tools -> Developers can track actions and all of the tools in React using Redux easily.
+   .) Community -> Large community, helping users with efficient and easy to use laibraries.  
+
+How routing in react different from conventional routing?
+ans --> Pages: Each view is considered as new file in conventional routing whielit is considered as a single HTML entity in React.
+        Navigation: In conventional routing, users have to move across web pages for viewing.
+                    In React, the views are not refreshed as objects are re-issued to create new views.
+
+Event --> It is something that happens when user interacts with webpage.
+
+Object --> It is an entity having state and behaviour ( Properties & Method ).
+           Object store data in key value pair.
+
+Sychronous Operation -: Synchronous operations in JavaScript requires having each step of an operation wait for the previous step to execute completely.
+                        This means no matter how long the previous process takes, subsequent process won't start off until the prior is completed.
+
+Asynchronous Operation -: Asynchronous means that things can happen independently of the main program flow.
+             Asynchronous Operations are handled by -
+     
+             Callback functions,
+             Promises and
+             Async and Await
+   Callback Functions - A callback is a simple function that's passed as a value to another function, 
+                        and will only be executed when the event happens. The callback function is not run unless called by its containing function.
+                        Callbacks are great for simple cases and are useful for short asynchronous operations.
+            Drawbacks - Every callback adds a level of nesting, and when you have lots of callbacks, 
+                        the code starts to become complicated very quickly and sometimes the code becomes 
+                        incomprehensible and is not easily refactored. (This is known as callback hell.)
+
+   Promises - Promises are one way to deal with asynchronous code, without writing too many callbacks in your code.
+             Drawbacks - Promises were introduced to solve the famous callback hell problem, 
+                         but they introduced complexity on their own, and syntax complexity.
+
+   Async and Await - Async functions are a combination of promises and generators, and basically, 
+                     they are a higher level abstraction over promises.
+                     Async functions make the code look like it's synchronous, but it's asynchronous and non-blocking behind the scenes.
+    
+
+    Drawbacks of JavaScript
+    -------------------------
+    client-side javascript doesnot allow reading or writing of the files.
+
+    It cannot be used for networking applications ,because there is no such support avialable.
+
+    Also it doesnot have any multi-threading or multiprocessor capabilities.
+
+
+JSX -: JAVASCRIPT EXTENSION
+     .)Used in React to write HTML & JS together.
+     .)Using plane javascript in React makes code too lengthy & complicated.
+     .)hence it helps to reduce code complexity.
+     .)JSX follows XML rule , hence HTML code should be properly closed.
+
+   ex: example of JSX
+       render(){return(<div><h1>Hello ! Everyone.</h1></div>):}
+
+
+
+----------------------------------------------------MySQL---------------------------------------------------------------
+
+Metadata : Class , which is used to hold the structure of our table
+           md = Metadata() [instance of Metadata class]
+
+db-url --> 'database_type://username:password@host_no:port_no/database_name'
+
+           'mysql://root:root@127.0.0.1:3306/b30sqal'
+
+session_maker --> To create a seesion in sqlalchemy
+
+mapper --> Mapper is used to map the python class and table structure.
+
+PDBC --> queries here are database dependent(i.e. different query for different databases)
+
+ORM --> queries here are python dependent(i.e. irrespective of databases we have same queries.)
+        The objects we create in python is going to establish a relation with DATABASE, with the help of ORM.
+       
+
+There are two ways of mapping 
+.) Classical way of mapping
+.) Declarative way of mapping.
+
+create_engine method --> This method is used to create connection between database.
+
+create_engine class --> returns the instance of engine class.
+
+whenever we define a table structure , setting primary_key is mandatory.
+
+primary_key = (not_null + unique_key)
+
+
+..) In session maker method
+
+  i) we need to pass Engine class instance(ENG)
+ ii) And it returns session class.
+iii) There is a bind parameter
+       Session = sessionmaker(bind = ENG) 
+ iv) We need this session class to create a session / or open a session.
+  v) Now create object of that session class.
+       sess = Session()
+
+-----------------------------------------------------------------------------------------------------------
+                                 API
+                               --------
+
+API :- Application Programming Interface (Allows us to communicate between two applications.)
+  Application refers to any software with distinct functions.
+  Interface means a contract of service between two applications. This contract defines how two applications
+     communicate with each other using request and responses.
+
+Standalone API --> API that runs on our own local machine.
+
+Web API --> Web API runs or communicates over the network. This can be accessed using HTTP protocol.
+            The API defines endpoints , valid request and response formats.
+            Web API's are categorised into two API's -:
+            i) SOAP API and REST API
+
+urls in Django are called as EndPoints in DRF.
+
+Advantages of Web API -
+.) we require less efforts with API.
+.) Web API's can be distributed.
+.) we can provide load balancing.
+
+REST API :
+  Representational State Transfer is a popular web API architecture.
+  To be a REST API we need to follow some guidelines . They are
+  i) Client - Server Architecture --> Interface is seperated from backend and data storage.
+                                       This provides flexibility and components can evolve independnt of each other.
+ ii) Statelessness --> No client context is stored between the requests in the server. So every request will be treated
+                       as new request.
+iii) Cacheability --> Clients can cache responses, so a REST API responses must state wether it can be cached or not.
+ iv) Layered System --> The API will work wether it is directly communicating with web server or through an intermeditiary
+                        such as load balancer.
+
+SOAP API :
+   SOAP is an established web api protocol. It is intended to be extensible, neutral(supports various range of 
+          communication protocols like SMTP, FTP, HTTP, TCP  and more.)
+          i) The Processing Model - means how to process SOAP message.
+
+         ii) Extensibility Model - SOAP Feature and modules.
+
+        iii) Protocol binding modules - how to use SOAP with an underlying protocol, such as HTTP.
+
+         iv) Message Construct - how to structure a SOAP message.
+ 
+
+REST -:  (Representational State Transfer )
+-------  Rest can use SOAP 
+         Rest can use any protocol(HTTP, SOAP)
+         Permits different data formats like PlainText, HTML, XML, JSON.
+         Inherits sequrity measures from underlying transport.
+         Less bandwidth required.
+
+SOAP -: (Simple Object Access Protocol)
+------- SOAP cannot use Rest.
+        SOAP cannot use other protocol, since it itself is a protocol.
+        Permits XML format only.
+        Defines its own security(so more secured).
+        More bandwidth required.
+        SOAP uses specific language WSDL(Web Service Description Language).
+
+Pickling -: Pickling is a recreation of python objects into stream of bytes.
+            Pickling is done using dump method.
+            syntax : pickle.dump(object, file)
+            
+Unpickling -: Recreation of python object from stream of bytes.
+              Here load() method is used.
+              syntax : pickle.load(file).
+
+Note -: (Pickling and Unpickling is a python specific format.)
+
+Cross-Platform Compatibility - Javascript Object Notation is a popular Serialization and Deserialization format.
+
+Serialization -:
+             Serialization is defined as process of converting an object into a sequence or stream of bytes
+              that can persist in a database or file or can be sent through streams. 
+
+             Serialization saves the state of objects for recreation without having to reprocess them on different platforms.
+
+             Serialization is useful for storing , Transmitting the state of an object.
+
+     concept of serialize:
+            Object -> Byte-Stream -> File
+
+Deserialization -: 
+               Deserialization is reverse or opposite process of creating an object from a sequence/stream of bytes.
+
+
+Advantages of Serialization and Deserialization -:
+               .) Platform Independent.
+               .) serialization reduces the data size of an object.
+               .) Serialized data gets transmitted fastly over the network(Due to less data size).
+
+
+RESTful web services --> 
+          DRF is a powerful and flexible toolkit for building web APIs.
+  
+why REST framwork?
+          .) Multiple authentication policies.
+          .) Serialization that supports ORM and NON ORM data resources. 
+          .) Customizable all the way down - just use function based views, if you don't need more powerful features.
+          .) Extensive Documentation and great community support.
+
+In Django - we use session authentication 
+In REST Framework - Basic Authentication, Session Authentication and Authentication techniques are used.(JWT, Token ,Oauth2).
+
+request.POST --> .) only works for POST request
+                 .) only handles textual form of data.
+                 .) deleting the data is also not possible.
+
+request.data --> .) works for any arbitrary HTTP methods or request.
+                 .) handles both textual and non textual form of data.
+
+
+DJANGO APPLICATION --> GET & POST request.
+
+WEB API --> 13 HTTP METHODS CAN BE USED. (GET,POST,PUT,PATCH etc)
+
+Class based API'S -->
+            REST Framework APIView class is subclass of Django's view class.
+            APIView is different from Django's  View Class.
+            Class Based View is recommended because we can extend the functionality of Class Based View.
+
+request object of Django is of HttpRequest
+                    |
+                  REST_FRAMEWORK is of Request Class.
+
+DjangoView ----------------- handler methods --> get and post request. (Here render function internally calls HTTP Response).
+
+APIView of rest_framework--- handler methods --> get, post, put, patch, delete.
+                             (Here we are using response class for sending Response to client.)
+
+Render classes in APIView decorator is JSON Render , Browsable API Render.
+
+Response class , first identifies from where the data is coming.
+    i) from 3rd party app.
+   ii) from Browser
+
+JSON Renderer :- If request comes from 3rd party app, then render class selected is JSON Renderer.
+                  .) Response will go in : JSON form.
+
+Browsable Renderer :- If the request comes from web browser, then it will have Browsable API Renderer class.
+                      .) Response will be HTML template.
+
+class method provides us APIView class.
+There are three type of class methods -:
+  i) INSTANCE METHOD
+ ii) CLASS METHOD
+iii) STATIC METHOD
+
+Instance Method --> Used to access or modify the state object.
+                    Here we use instance variables inside a method.
+                    It must have self parameter to refer to the current method.
+                    calling --> object.method()
+
+Class Method --> Used to access or modify the class state.
+                 In method implementation, if we use only class variables, then in such type of methods, we should declare a class method.
+                 The class method has a cls parameter which refers to the class.
+                 You can use class methods for any methods that are not bound to a specific instance but the class.
+                 Calling --> class.method()
+
+Static Method --> General utility method that performs task in isolation.
+                  In this method we donot provide any instance or class variable because static method method 
+                  doesnot take any parameter like self and cls. 
+
+.) For FUNCTION BASED API view :
+    
+   from rest_framework.response import Response
+   from rest_framework.decorators import api_view
+   from rest_framework import status
+
+   @api_view(['POST','GET','DELETE'])
+   def third_api(request):
+
+.) FOR CLASS BASED API view :
+   
+   from rest_framework.response import Response
+   from rest_framework.decorators import APIView
+   from rest_framework import status
+
+   class FirstClassAPI(APIView):
+   def get(self, request):
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+https://django-oauth-toolkit.readthedocs.io/en/latest/getting_started.html
+https://www.section.io/engineering-education/django-google-oauth/
+
+
+
+
+react
+
+VIRTUAL DOM --> 
+               DOM -->
+                    Whenever a web document — such as HTML — is loaded in the browser, 
+                    an object-based representation of the document’s elements is created in a tree-like structure. 
+                    This object representation is called the Document Object Model, also known as the DOM.
+                    Due to its object-based nature, JavaScript and other scripting languages understand the DOM and can interact 
+                    and manipulate the document content. For instance, with the DOM, developers can add or remove elements, 
+                    modify their appearance and perform user’s actions on the web elements.
+
+                    DOM operations like DOM querying and updating are lighter and thus are very fast. 
+                    However, for the update to reflect on the web page, the page will have to re-render.
+                    Re-rendering the page to reflect DOM updates is costly and can lead to performance shortcomings,
+                    because the browser has to recalculate the CSS, rerun the layout for each visible element, and repaint the webpage.
+
+REACT JS -:
+------------
+
+.) Open-source JS liabrary
+.) Used for building interface
+.) Developed by Facebook.
+.) Virtual DOM
+.) Single paage application.
+.) fOLLOWS COMPONENT BASED APPROACH, helps us to build compone
+.) Fast Performance.
+
+Features -:
+-----------
+.) Uses single direction data flow model.
+.) deals with complete server-side data processing and handling.
+.) Uses virtual DOM.
+.) It can be used for both client-side and server-side requirements.
+
+Limitataions -:
+---------------
+.) Complicated codes, since it uses JSX and inline template formatting.
+.) Tough syntax and metods makes it tough for beginners.
+.) Liabrary contains huge repository of information.
+.) React is a simple liabrary and not a complete framework hence calls for dependencies.
+
+
+.) Can browsers read a JSX file ?
+ans --> No, JSX cannot read javascript files directly.
+        It can only read object provided by javascript.
+        To make browser read a JSX file, it has to be transformed into JavaScript object using JSX transformers.
+ 
+.) What is meant by component-based architecture of React?
+ans --> In react, components are foundations used to build user interfaces for applicatons.
+        All of the indiviual entities become completely independent of each other.
+        Rendering the application is easy and not dependent on other components of UI.
+
+.) How does rendering work in React?
+ans --> Rendering is an important aspect of react as every single element must be rendered.
+        Once the function is called, it returns an element that represents a DOM comonent.
+        It is also possible to render more than one html elemens , by enclosing the HTML tagsand passing it through the render function.
+
+
+
+components -> .) core building block of react application.
+              .) they are reusable as per our need.
+              .) make task of building UI easier
+              .) UI can be easily broken in small pieces called components, 
+                 on which it can be easily worked upon and then assembled back
+                 as UI. hence components make our task easier.
+
+
+    
+
+
+Components are of two types -:
+.) Functional Component
+.) Class component
+
+.) Functional Components -: They are simply javascripts functions.
+(may or may not receive
+data as parameter)        .) Here , the written value is a JSX code, to render on DOM tree.
+(return value JSX code)   .) Functional components may or maynot receive data as parameters
+                             i.e. we will use functional component only when we are sure that
+                             our component does not require interacting or work with any other component.
+        
+                            Function Hello=()=>{ return (<> <h1>This is functional component</h1> </>)}
+
+.) Class Component -: The class components are a little more complex than the functional components.
+                      .) we will use functional component only when we are sure that 
+(extend component class) our component does not require interacting or work with any other component.
+(must have render)    .) render and extend functions are cumpulsary here.
+                      .) Drawback -> To define a variable , we need to put in constructor.
+
+                      class Hello extends Component{ render () { return (<> <h1>This is functional component</h1> </>)}}
+What is React Fiber?
+ans -> It is a new engine in react.
+       The main goal is to ensure that there are incremental rendering facilities for the virtual DOM.
+       This increases efficiency when rendering animations,gestures etc and also helps in assiginig
+        priority to updates based on the requirements, thereby increasing overall efficiency.  
+
+
+.) Default Export -> Used for single component export. We can export the component with same name or other  name.
+.) Named Export -> Used for multiple component export.
+
+.) State ->  State is defined as an object of a set of observable properties that control the behavior of the component.
+            .) Inbuilt react object, which contains information or data about component.
+            .) State of a component is an object that holds some information that may change over the lifetime of the component. 
+            .) States are esily used to create dynamic and interactive components.
+
+.) Arrow function --> .) Used to write expressions in React.
+                      .) Allows users to bind components easily.
+                      .) Useful in working with higher-order functions.
+
+    ex: render(){return(<MyInput onChange={ {(e) => this.handleonChange(e)}/>);}
+
+.) Difference between props and states
+   -> props =>  changes in child components
+                parent component changing values.
+   -> states => changes inside components.
+
+.) Three phases of a component life cycle in React
+   ->) Initial Rendering -> This phase involves begining of the components to the DOM.
+   ->) Update -> Here components can be updated and rendered again if required after it gets added to the DOM.
+   ->) Unmounting -> Descruction of the component and its removal from the DOM.
+
+.) Higher-Order Components --> 
+            .) used to apply concepts that involve the component reusability logic.
+            .) They are not native part of React API.
+            .) Also allow simple sharing of behaviour across all of the components in React.
+
+         used for
+             .) Manipulation of props.
+             .) State manipulation and abstraction.
+             .) Render high jacking.
+             .) Code reusing
+             .) Bootstrap abstraction.
+
+.) Constructor -> In class component , to declare variable or object, we use constructor.
+                .) Constructor runs before anything else in the class-based code in react.js to the life-cycle of the component.
+
+                .) Constructor code runs once, and only once, for the entire life-cycle of this component in react
+                .) It is used to bind methods in ReactJS.
+                .)  used to read or access a parent’s property from a child’s component in ReactJS. 
+
+.) Super -> .) Super resides always inside the constructor.
+            .) Super is essential whenever there is a constructor in ReactJS.
+            .) Super is used to access parent properties and method from the child components.
+            .) It is important to call super before the object initializes i.e,
+               before using this.state in the constructor if it’s not there then the code gives a bug.
+          
+.) Props -> .) Props stand for properties.
+            .) Read only components that are immutable in nature.
+            .) They are like a functional argument.
+            .) Props gives a way to pass data from one component to other components.
+            .) Props are immutable so we cannot modify the props from inside the component.
+            .) Benefits -
+                  .) Reusability
+                  .) Send data from one component to another(like a chain).
+                  .) Reduces line of codes.
+                  .) If we want to display any property dynamically , we use props.
+            .) Suppose if we have multiple components ex. A , B, C, D, E,
+               & if we want to send data directly from A to E , it becomes too lengthy procedure,
+               so we use React Context instead.
+
+what are the predefined props types present in react?
+ans-> React.PropTypes.(bool,func,node,number,string)
+
+.) React Context -> React Context can be used to transfer data from one component of tree to other
+                    component by skipping intermediate levels.
+                  .) We just need to provide two tags, Provider tag and Consumer tag
+                  .) Provider tag is provided at parent end whereas Consumer tag at child end.
+                  .) With a single provider there can be multiple consumers.
+                  .) We can create a context using createContext () function.
+                  .) Used mostly to
+                       .) to change the theme colour
+                       .) to do user authentication
+                       .) conditional component render
+                  .) Drawbacks
+                       .) If we send single variable from provider to consumer , it's simple,
+                           but if we want to send multiple variable , then code becomes 
+                           lengthy and complex on consumer side.
+                       .) lengthy code
+                       .) complex logic 
+
+.) Hooks -> To overcome the lengthy and complex code at the consumer end , the concept of Hooks was introduced.
+             .) Hooks is a simple JS function, which do not contain any JSX.
+             .) Hooks functionality is only for the consumer end.
+             .) benefit of using hook is that we can change state in functional component also.
+             
+    Rules -> .) Used only inside functional component at top level.
+             .) Hooks donot work inside class.
+             .) Hooks cannot be conditional.
+             .) Donot use hooks inside loops or nested functions.
+
+             .) There are three types of hooks -:
+                   .)  useContext
+                   .)  useEffect (useEffect(()=>{},[])({}->callback function, []->dependencies)
+                   .)  useState
+
+                      .) useState() -> used for state management(ex. setState) to change certain value.
+                                      .) use State always returns array with two values(state, function)
+                                                *)  function updates the state.
+                                                .) returns current data and updated data
+                                               .) value provided in useState is known as initial data
+                             syntax - const[varname , func name] = useState(initial value)
+                                               |
+                                            can contain(number, strings, arrays, object)
+
+                                  ex- const[count, setCount] = useState(0)
+
+                      .) useEffect() -> .) .) Hooks donot work inside class.
+                                              allows to perform side effect on our application.
+                                           .) Whenever page loads for the first time, use effect gets called automatically.
+                                                         -----------
+                                            .) side effects are basically anything that affects something
+                                                outside the scope of thecurrent function that is being executed.
+                                            .) Whenever useEffect is used, it automatically re-renders our component.
+
+                                             ex: .) API request to our backend service.
+                                                 .) Calls to our authentication service etc.
+                                                 .) Manually changing the DOM in react components.
+                                                 .) Setting up subscription.
+                                                             
+                      .) customhook() -> .) Hook is a javascript function, it doesnot contain any JSX.
+                                         .) When you create a hook, no JSX will be present here.
+                                         .) Also, no return will be present there. 
+
+React Router -> .) React router is a standard liabrary for routing in react applications.
+                .) It enables the navigation among views of various components.
+                .) Allows us to change the Browser URL.
+                   installation -- npm install react-router-dom
+                .) To change the browser URL we use <Navlink to=" "> </Navlink>, instead <a></a>(anchor tag)
+                   and instead of href we use 'to'------------|
+                   (anchor tag has the drawback that with change in url , the entire page reloads.)
+                .) We use <Browser Router> </Browser Router>, it enable the routing property to appear on page. 
+
+React Redux -> .) React redux is kind of container(an array) where we can store whole application data. 
+                  These data is stored at frontend where react is used(ex. user detail, api detail etc).
+                  It is basically a state management tool, where state means data(related to our appplication.)
+                  A state of application is created, it is not related to comonent state. Whole data of redux is
+                  obtained in the form of props.
+                  REdux basically helps in efficient communication between the components.
+
+                  Components of redux :
+                 -----------------------
+
+               .)View -> All the buttons, colours etc that are visible on browser page comes into view.
+
+               .)Action -> Collects data from component or API. (i.e. data may be collected from view if user 
+                            enters some kind of information.)
+
+               .)Reducer -> Collect data from action and filter the data according to the instruction(from action,
+                             action does so by sending a key)so that it can be stored.
+
+               .)Store -> Store contains state of complete application.
+                          There can be only one store in one redux application. direction of data is always unidirectional.
+                          View -> Action -> Reducer -> Store -> View
+
+                    to check if npm is installed -> npm -v
+                               node is installed -> node -v
+                             to create react app -> npx create-react-app appname
+                                                    cd appname
+                                to install redux -> npm install redux
+                          to install react-redux -> npm install react-redux
+
+                  .) to tranfer data within components we use state
+                     to transfer data between components we use props.
+
+
+Why is props passed to the super() function in React?
+ans --> Props gets passed onto super() function if a user wishes to access this.props in the constructor. 
+
+What to do if react application is rendering slowly?
+ans --> It mostly happens due to number of re rendering operations , which is unnecessary.
+        There are two main tools-:
+     .) React.memo(): Used to prevent all un-necessary rendering carried by the render functions.
+     .) PureComponent: To ensure that unnecessary rendering of class components are avoided.
+
+Is there any wat to avoid use of binding is React?
+ans -> There are two ways -:
+       .) Defining the Event HAndler as an inline Arrow function.
+       .) Using a function component along with Hooks.
+
+What is the use of the second argument that is passed to setState? Is it optional?
+ans --> When setState is finished, a callback function is invoked., and the components get re-rendered in react.
+        Yes , it is an optional argument. Since setState is asynchronous, it takes in another callback function.
+
+Difference between cloneElement and createElement.
+cloneElement -> Primarily used to clone an element and pass it to new props directly.
+createElement -> It is an element that JSX gets complied into. This is also used to create elements in React.
+ 
+
+Keys -> Keys are used in React to check all the items and to track changes actively.
+        They are use dto directly check if an item has been added or removed from a list.
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+                                                    HTML (HyperText Markup Language)
+                                                  ----------
+
+Used to design structure of web pages.
+
+HTML elements
+--------------
+.) HTML elements consists of three parts-:
+  i) Opening tags -> tells the browser where the content material starts.
+ ii) content -> It is the actual content material.
+iii) Closing tags -> tells the browser where the content material ends.
+
+.) There are 6 heading tags.
+.) label tag --> Used to give label to the text boxes.
+.) Radio Button --> Selecting only one option of the multiple options.
+.) Check Box --> For selecting multiple options.
+.) target attribute --> to open refrence page in new tab.
+
+Metadata is written in <head></head>. (Metadata controls the elements in the body.)
+
+anchor tag --> The anchor tag in HTML is used to create a hyperlink on the webpage.	
+
+body tag --> The body tag in HTML is used to define the main content present inside an HTML page.
+
+div tag --> The div tag is used in HTML to make divisions of content in the web page (text, images, header, footer, navigation bar, etc).
+
+head tag --> The head tag in HTML is used to define the head portion of the document which contains information related to the document.
+
+input tag --> The input tag is used within < form> element to declare input controls that allow users to input data.
+
+label tag --> The label tag in HTML is used to provide a usability improvement for mouse users.
+
+list tag --> The list tag in HTML is used to define the list item in an HTML document. It is used within an Ordered List <ol> or Unordered List <ul>.
+
+main tag --> The main tag is used to give the main information of a document. The content inside the <main> element should be unique for the document.	
+
+marquee tag --> The marquee tag in HTML is used to create scrolling text or images on a webpage. It scrolls either horizontally or vertically.
+
+meta tag --> The meta tag is regularly used to give watchwords, portrayals, author data, and other metadata that might be utilized by the program to deliver the document accurately or in simple words, it provides important information about a document.
+
+nav tag --> The nav tag is used for declaring the navigational section in HTML documents. Websites typically have sections dedicated to navigational links, which enables users to navigate the site.	
+
+option tag --> The option tag in HTML is used to choose an option from a Drop-Down menu.
+
+paragraphs --> The <p> tag in HTML defines a paragraph. These have both opening and closing tags.
+
+param tag --> The param tag in HTML is used to define a parameter for plug-ins which is associated with <object> element.
+
+source tag --> The source tag in HTML is used to attach multimedia files like audio, video, and pictures.
+
+span tag --> The HTML span element is a generic inline container for inline elements and content.
+
+table tag --> HTML Table, various ways to implement it, & will also understand its usage through the examples. HTML Table is an arrangement of data in rows and columns, or possibly in a more complex structure.
+
+tbody tag --> The tbody tag in HTML is used to make a group of the same type of content of the body element.
+
+td --> The table data tag is used to define a standard cell in an HTML table.	
+
+th --> The table header tag in HTML is used to set the header cell of a table. Two types of cells in the HTML table Header & Standard.
+
+thead --> This tag is used in HTML tables as head and body which are known as thead and tbody.
+
+title tag --> The title tag in HTML is used to define the title of HTML document. It sets the title in the browser toolbar.
+
+tr tag --> The table row tag is used to define a row in an HTML table. The <tr> element contains multiple <th> or <td> elements.
+
+underline tag --> The underline tag in HTML stands for underline, and it’s used to underline the text enclosed within the <u> tag.
+
+var tag --> It is a phrase tag used to specify the variable in a mathematical equation or in a computer program.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+.) create database practise;  ---> to create new database
+
+   create table Employee
+    -> (
+    -> eid int PRIMARY KEY,
+    -> name varchar(20),
+    -> sname varchar(20),
+    -> city varchar(20)
+    -> );
+
+.) CREATE DATABASE IF NOT EXISTS practise (no error will be thrown if we use this command)
+
+.) show databases;  ---> to show all databases present
+
+.) use practise; ---> to switch to required database
+
+.) show tables; --> to show all tables present in practise
+
+.) create table employee   ----> to create a table
+      (
+      eid int primary key,
+      ename varchar(50),
+      esurname varchar(60),
+      salary float
+      );
+
+   
+payslip, form no 16, experience
+
+.)  mysql> create table family5
+    -> (
+    -> fid int not null,
+    -> fname varchar(20) unique,
+    -> city varchar(20)
+    -> );
+    Query OK, 0 rows affected (0.04 sec)
+
+.) create table Teacher as (select * from student where 1=2); -->
+            create table with same structure as another table.
+
+.) create table stu select * from student; --> create table with same data and structure as another table.
+
+.) desc employee; --> to see all fields in table
+
+.) insert into employee values       --> to fill table with values
+     (1,'Ravindra','Jadeja',50000),
+     (2,'Mahendra','Singh',60000),
+     (3,'Sanju','Samson',70000);
+
+.) select * from employee;  --> to overlook all data entered in the table
+
+.) delete from employee where eid = 2; --> delete a row using fields(here row with eid = 2, gets deleted)
+
+.) drop table table_name; --> to remove the entire table from tables list
+
+.) truncate table table_name; -> to remove only data and fields remain unaffected.
+
+.) update employee               --> to update any table data
+      set ename = 'sanju bhai'
+      where ename = 'sanju';
+
+.) update employee               --> entire salary column will be updated with same data
+      set salary = 100000;
+
+.) update employee
+       set ename = 'mahi'
+       where eid = 3;
+
+.) select * from employee where eid > 2;
+
+   select * from employee where eid < 2;
+
+   select * from employee where eid <= 2;
+
+   select * from employee where eid >= 2;
+
+   select * from employee where eid in(1,2);
+
+   select * from employee where ename like 'm%'; --> all rows where name will be starting from m
+   
+   select * from employee where ename like '%a'; --> all rows where name will be ending from a
+
+   select * from employee where ename like '%u%'; 
+
+   select * from employee where ename like '____'; all rows with name of 4 alphabets(since there are four underscores)
+
+   mysql> select * from employee where city like "________";
+    +-----+----------+---------+----------+
+    | eid | name     | sname   | city     |
+    +-----+----------+---------+----------+
+    |  11 | Vikas    | Chaubey | Varanasi |
+    |  13 | Khushboo | Chaubey | Varanasi |
+    +-----+----------+---------+----------+
+    2 rows in set (0.00 sec)
+
+    mysql> select * from employee where city like "___ _____";
+    +-----+-------+----------+-----------+
+    | eid | name  | sname    | city      |
+    +-----+-------+----------+-----------+
+    |  12 | Divya | Bhardwaj | New Delhi |
+    +-----+-------+----------+-----------+
+    1 row in set (0.00 sec)
+
+   select * from employee where eid = 3 and ename = 'mahi';
+
+   select * from employee where eid = 2 or ename = 'mahi';
+
+   select * from employee where eid between 1 and 3;
+
+   select * from teacher where eid in(1,3);  ---> finding specific values without using OR, BETWEEN, AND etc
+
+   select min(eid) from employee;
+
+   select max(eid) from employee;
+  
+   select avg(eid) from employee;
+
+   select add(eid) from employee;
+
+   select count(eid) from employee;
+
+.) drop database phone;  --> to delete the complete database
+
+ex: mysql> desc family1;
+    +-------+-------------+------+-----+---------+-------+
+    | Field | Type        | Null | Key | Default | Extra |
+    +-------+-------------+------+-----+---------+-------+
+    | eid   | int         | NO   |     | NULL    |       |
+    | name  | varchar(20) | YES  |     | NULL    |       |
+    | sname | varchar(20) | YES  |     | NULL    |       |
+    | city  | varchar(20) | YES  |     | NULL    |       |
+    +-------+-------------+------+-----+---------+-------+
+    4 rows in set (0.00 sec)
+    
+    mysql> drop table family1;
+    Query OK, 0 rows affected (0.02 sec)
+
+    mysql> desc family1;
+    ERROR 1146 (42S02): Table 'world4.family1' doesn't exist
+
+.) select * from stu limit 5; --> To find first 5 records
+
+.) select * from stu order by s_id limit 5; --> To find first 5 records
+
+.)  select max(s_id) from stu (using sub query)
+    -> where s_id<(select max(s_id) from stu
+    -> where s_id<(select max(s_id) from stu)); --> Find third highest s_id 
+
+ex: +----------+
+    | max(eid) |
+    +----------+
+    |       19 |
+    +----------+
+    1 row in set (0.01 sec)
+ 
+.)  select max(s_id) from stu (using sub query)
+    -> where s_id<(select max(s_id) from stu); --> Find second highest salary.
+
+.)  mysql> select min(eid) from employee
+    -> where eid>(select min(eid) from employee
+    -> where eid>(select min(eid) from employee));
+ ex: +----------+
+     | min(eid) |
+     +----------+
+     |       13 |
+     +----------+
+     1 row in set (0.00 sec)           
+
+.) select s_id from stu (by using limit)
+    -> order by s_id desc limit n-1,1; --> to find nth highest salary
+
+ex-->  select s_id from stu (third highest salary)
+    -> order by s_id desc limit 2,1;
+        
+        
+ans --> mysql> select eid from employee;
+        +-----+
+        | eid |
+        +-----+
+        |  11 |
+        |  12 |
+        |  13 |
+        |  14 |
+        |  15 |
+        |  16 |
+        |  17 |
+        |  18 |
+        |  19 |
+        |  20 |
+        |  21 |
+        +-----+
+        11 rows in set (0.00 sec)
+
+        
+        mysql> select eid from employee
+        -> order by eid desc limit 3,1;
+        +-----+
+        | eid |
+        +-----+
+        |  18 |
+        +-----+
+        1 row in set (0.00 sec)
+
+ex --> select s_id from stu
+    -> order by s_id desc limit 3,2;
+
+ans --> +------+
+        | s_id |
+        +------+
+        |   16 |
+        |   15 |
+        +------+
+
+.)  select s_id from stu (by limit offset)
+    -> order by s_id desc
+    -> limit 1 offset n-1;
+
+ans -> mysql> select eid from employee;
+    +-----+
+    | eid |
+    +-----+
+    |  11 |
+    |  12 |
+    |  13 |
+    |  14 |
+    |  15 |
+    |  16 |
+    |  17 |
+    |  18 |
+    |  19 |
+    |  20 |
+    |  21 |
+    +-----+
+    11 rows in set (0.00 sec)
+
+    mysql> select eid from employee
+    -> order by eid desc
+    -> limit 1 offset 1;
+    +-----+
+    | eid |
+    +-----+
+    |  20 |
+    +-----+
+    1 row in set (0.00 sec)
+
+ex --> (USING OFFSET)
+       mysql> select s_id from stu
+    -> order by s_id desc
+    -> limit 1 offset 2;
+
+ans --> +------+
+        | s_id |
+        +------+
+        |   17 |
+        +------+
+
+ex --> (USING DISTINCT)
+         mysql> select marks
+      -> from guru g1
+      -> where (2) = (
+      -> select count(distinct(g2.marks))
+      -> from guru g2
+      -> where g2.marks > g1.marks);
+ans --> +-------+
+        | marks |
+        +-------+
+        |    67 |
+        +-------+
+
+.) select * from stu where eid%2=0; --> To fetch even number of records
+
+ex --> mysql> select * from employee where eid%2=0;
+       +-----+--------+----------+-----------+
+       | eid | name   | sname    | city      |
+       +-----+--------+----------+-----------+
+       |  12 | Divya  | Bhardwaj | New Delhi |
+       |  14 | Rani   | Chaubey  | Nagpur    |
+       |  16 | Ankush | Mugal    | Amravati  |
+       |  18 | Chirag | Gaur     | Palwal    |
+       |  20 | Rohit  | Dubbala  | Vijaywada |
+       +-----+--------+----------+-----------+
+       5 rows in set (0.01 sec)
+
+.) select * from stu where eid%2=1; --> To fetch odd number of records
+
+ex --> mysql> select * from employee where eid%2=1;
+       +-----+-----------+-----------+-----------+
+       | eid | name      | sname     | city      |
+       +-----+-----------+-----------+-----------+
+       |  11 | Vikas     | Chaubey   | Varanasi  |
+       |  13 | Khushboo  | Chaubey   | Varanasi  |
+       |  15 | Deepankar | Sharma    | Kanpur    |
+       |  17 | Ajeet     | YAdav     | Azamgarh  |
+       |  19 | Meghna    | Srivastav | Gorakhpur |
+       |  21 | Swapnil   | Prakash   | Nagpur    |
+       +-----+-----------+-----------+-----------+
+       6 rows in set (0.00 sec)
+
+        ---------------------NOT NULL--------------------------------
+
+.)  create table student   --> cid cannot be left empty here since NOT NULL is used.
+       (
+       cid int NOT NULL,
+       name varchar(50),
+       product varchar(50)
+       );
+
+.) desc student;
+
+.) mysql> create table family5
+    -> (
+    -> fid int not null,
+    -> fname varchar(20) unique,
+    -> city varchar(20)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into family5(fname, city) values
+    -> ("vikas", "lucknow");
+ERROR 1364 (HY000): Field 'fid' doesn't have a default value
+mysql> insert into family5(fid, city) values
+    -> (101 , "lucknow");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from family5;
++-----+-------+---------+
+| fid | fname | city    |
++-----+-------+---------+
+| 101 | NULL  | lucknow |
++-----+-------+---------+
+1 row in set (0.00 sec)
+
+.) mysql> insert into student(cid,product)values
+    -> (1,'Mobile');
+
+.)  select * from student;
+
+        ------------------------UNIQUE-------------------------------
+
+.)  create table teacher
+       (
+       tid int UNIQUE,
+       name varchar(40),
+       salary float
+       );
+
+.)  show tables;
+
+.)  desc teacher;
+
+.) insert into teacher values
+     (1,'preeti','40000'),
+     (2,'prajita',50000);
+
+.) insert into teacher values
+       (2,'sonali','30000');
+ERROR 1062 (23000): Duplicate entry '2' for key 'teacher.tid'
+ 
+----------------------------------------------------
+
+Foreign Key -->
+               .) It is used to link two or more tables.
+               .) One table can contain multiple Foreign Keys.
+               .) Foreign Key in one table refers the primary key in another table.
+
+   REFRENTIAL OPTIONS
+   
+   1) CASCADE
+   2) SET NULL
+
+------------------FOREIGN KEY----------------------------
+
+ create table course
+     (
+     cid int,
+     cname varchar(60),
+     roll int,
+     foreign key(roll) references teacher(tid)  ON UPDATE CASCADE ON DELETE CASCADE
+     );
+
+ insert into teacher values
+    -> (5,'Akriti',55000);
+
+ insert into course values
+    -> (101,'Ankush',1),
+    -> (102,'Anup',2),
+    -> (103,'Anklesh',3),
+    -> (104,'Anuj',4),
+    -> (105,'Akhilesh',5);
+
+ delete from course where roll = 2;
+
+ delete from teacher where tid = 5;
+
+ update course
+     set cname = 'Atmaram'
+     where cid = 103;
+
+----------------------------------------------------
+
+Relationships in MySQL
+
+  1) One - to - One
+         Where one primary key is reffered by a single foreign key.
+
+  2) One - to - Many
+         Where one primary key is reffered to multiple foreign key.
+
+  3) Many - to - Many
+         When multiple foreign key are reffered by multiple foreign key.
+
+
+DEFAULT CONSTRAINT:
+       It is used to set a default value to the column.
+
+
+JOINS:
+   Joins are used to retrive the data from two or more tables.
+
+LEFT JOIN (LEFT OUTER JOIN):
+   It returns all the data from the left table and only the matching records from the right table.
+
+RIGHT JOIN (RIGHT OUTER JOIN):
+   It returns all the data from the right table and only the matching records from the left table.
+
+INNER JOIN:
+   It returns only the matching records from both the tables.
+
+DISTINCT CLAUSE:
+   It returns only the UNIQUE values from the specified column. 
+
+--------------------------------JOINS---------------------------------------------------
+
+create table Java
+     (
+     cname varchar(50),
+     cduration varchar(20),
+     roll int
+     );
+
+create table Python
+     (
+     cname varchar(50),
+     cduration varchar(20),
+     roll int
+     );
+
+desc java;
+
+desc python;
+
+insert into java values
+     ('Hibernate','11D',1),
+     ('Spring','12D',2),
+     ('SpringBOOT','13d',3),
+     ('MT','14D',4),
+     ('COREJAVA','15D',5);
+
+select * from java;
+
+insert into python values
+     ('CORE Python','16D',5),
+     ('PDBC','4D',4),
+     ('SQLAlchemy','12D',2),
+     ('Flask','15D',1),
+     ('Pyramid','12D',6);
+
+select * from python;
+
+select * from java
+     left join python
+     on java.roll = python.roll;
+
+select * from java
+     right join python
+     on python.roll = java.roll;
+
+select * from python
+     inner join java
+     on java.roll = python.roll;
+
+create table cpp
+     (
+     cname varchar(60),
+     cduration varchar(60),
+     roll int
+     );
+
+insert into cpp values
+     ('OOP','15D', 2),
+     ('EXCEPTION','2D',5);
+
+select * from java;
+
+select * from python;
+
+select * from cpp;
+
+select * from java
+     join python
+     on java.roll = python.roll
+     join cpp
+     on python.roll = cpp.roll;
+
+create table java2 as select * from java;
+
+insert into java2 select * from java;
+
+select * from java2;
+
+desc python;
+
+create table python2 as select * from python limit0;
+
+desc python2;
+
+select * from python2;
+
+select distinct(cname) from java2;
+
+---------------------------------------------------------------------------------------------------------------------------
+                          
+                 Difference between Return & Yield
+
+1	Yield is generally used to convert a regular Python function into a generator.	
+             Return is generally used for the end of the execution and “returns” the result to the caller statement.
+2	Yield replace the return of a function to suspend its execution without destroying local variables.	
+             Return exits from a function and handing back a value to its caller.
+3	Yield is used when the generator returns an intermediate result to the caller.	
+             Return is used when a function is ready to send a value.
+4	Code written after yield statement execute in next function call.	
+             while, code written after return statement wont execute.
+5	Yield can run multiple times.	
+             Return only runs single time.
+6	Yield statement function is executed from the last state from where the function get paused.	
+             Every function calls run the function from the start.
+
+
+
+
+if..else statement --> conditional statement used in python for decision making.
+
+
+types of string in python
+
+control methods of python
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------------------------------
+
+interview coding questions
+------------------------------
+
+.) remove duplicates in an array
+
+li = [1,2,1,4,3,2,1,1,5,7]
+
+li1 = []
+
+for i in li:
+    if i not in li1:
+        li1.append(i)
+print(li1)
+
+ans --> [1, 2, 4, 3, 5, 7]
+
+   by list comprehension
+   ---------------------
+
+li3 = [1,2,1,4,3,2,1,1,5,7]
+li2 = []
+[li2.append(i) for i in li3 if i not in li2]
+print(li2)
+
+-----------------------------------
+
+.) expected = ["aa", "bb", "cc", "dd" ]
+
+que --> list1 = [["aa","bb"],["cc","dd"]]
+
+        list2 = []
+
+        for ele in list1:
+            for j in ele:
+                list2.append(j)
+        print(list2)
+output--> ['aa', 'bb', 'cc', 'dd']
+----------------------------------------
+
+.) swapping two variables using third variable
+
+que--> 
+a = int(input("Enter the value of a -> "))
+b = int(input("Enter the value of b -> "))
+
+c = a
+a = b
+b = c
+
+print("The value of a after swapping is ", a)
+print("The value of b after swapping is ", b)
+
+o/p ->
+Enter the value of a -> 4568
+Enter the value of b -> 3458
+The value of a after swapping is  3458
+The value of b after swapping is  4568
+
+.) swapping two variables without third variable
+
+que -> 
+a = int(input("Enter the value of a -> "))
+b = int(input("Enter the value of b -> "))
+
+b = a+b
+a = b-a
+b = b-a
+
+print("The value of a after swapping is ", a)
+print("The value of b after swapping is ", b)
+
+output --> 
+Enter the value of a -> 5
+Enter the value of b -> 10
+The value of a after swapping is  10
+The value of b after swapping is  5
+
+------------------------------------------------
+
+.) factorial of a number
+
+a = int(input("Enter the value of a: "))
+factorial = 1
+
+for i in range (a,0,-1):
+    factorial = factorial*i
+print(factorial)
+
+ans --> 
+Enter the value of a: 5
+120
+
+-----------------------------------------------
+
+.) To find wether a number is prime or not
+
+def prime_number(num):
+
+    if (num>1):
+        for i in range(2,num):
+            if (num%i == 0):
+                return False
+        return True
+
+value = prime_number(17)
+
+if value :
+    print("The number is a prime number")
+else:
+    print("The number is not a prime number")
+
+---------------------------------------------------
+
+# To find prime numbers in the given range
+
+a1 = int(input("Enter the upper limit: "))
+a2 = int(input("Enter the lower limit: "))
+
+for i in range(a1, a2+1):
+    if i > 1:
+        for j in range(2,i):
+            if (i%j) == 0:
+                break
+        else:
+            print(i, end=" ")
+
+Enter the upper limit: 5
+Enter the lower limit: 20
+5 7 11 13 17 19 
+
+-----------------------------------------------------------
+
+# How to reverse a string
+#1 while loop
+
+name = input("Enter the string: ")
+reversed_name = " "
+count = len(name)
+
+while count>0:
+    reversed_name = reversed_name+name[count-1]
+    count = count - 1
+print("Reversed_name is : ", reversed_name)
+
+output -->
+
+Enter the string: eyes
+Reversed_name is :   seye
+
+#2 for loop
+
+name1 = input("Enter the string: ")
+reversed_name1 = " "
+for i in name1:
+    reversed_name1 = i + reversed_name1
+print("The reversed name is: ", reversed_name1 )
+
+output --> 
+
+Enter the string: eagle
+The reversed name is:  elgae 
+
+#3 by slicing
+
+name2 = input("Enter the name: ", )
+reversed_name2 = name2[::-1]
+print("The reversed name is: ", reversed_name2)
+
+output --> 
+
+Enter the name: pigeon
+The reversed name is:  noegip
+
+------------------------------------------------------
+
+       Ways to copy a list
+      ----------------------
+
+# 1. using assignment operation # reffering
+list1 = [1,2,3,4,5]
+copy_list = list1
+print(copy_list) # [1, 2, 3, 4, 5]
+print(id(list1))
+print(id(copy_list))
+#list1 & copy_list both point to same memory address
+
+# 2. using copy() function
+list2 = [1,2,3,4,5]
+copy_list3 = list2.copy()
+print(copy_list3) # [1, 2, 3, 4, 5]
+print(id(list2)) #2142869977728
+print(id(copy_list3)) #2142901018752
+#both point to different memory address
+
+
+# 3. using list constructor
+list4 = [1,2,3,4,5]
+copy_list5 = list(list4)
+print(copy_list5) #[1, 2, 3, 4, 5]
+print(id(list4)) #1364084718528
+print(id(copy_list5)) #1364114919680
+#print(&#39;\n&#39;)
+
+# 4. using indexing method
+list6 = [1,2,3,4,5]
+copy_list7 = list6[:] # cloning
+print(copy_list7) #[1, 2, 3, 4, 5]
+print(id(list6)) #1364084718208
+print(id(copy_list7)) #1364115824768
+#print(&#39;\n&#39;)
+
+# 5. using list comprehension
+list8 = [1,2,3,4,5]
+copy_list9 = [i for i in list8]
+print(copy_list9) #[1, 2, 3, 4, 5]
+print(id(list8)) #1364115826880
+print(id(copy_list9)) #1364115827776
+#print(&#39;\n&#39;)
+
+# points to remember
+# Assignment operation → Both lists will point to the same list object
+# Indexing,list(),list comprehension,copy()
+# Both lists(original and copied list) will point to different list-objects.
+
+# 6. extend method
+list10 = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+copy_list11 = []
+copy_list11.extend(list10)
+print(list10) #[10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(copy_list11) #[10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(id(list10))  #1364084717184
+print(id(copy_list11)) #1364115829248
+#print(&#39;\n&#39;)
+
+# 7. append method
+list12 = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+copy_list13 = []
+for ele in list12: copy_list13.append(ele)
+print(list12) #[10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(copy_list13) #[10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(id(list12)) #1364086093120
+print(id(copy_list13)) #1364086093312
+#print(&#39;\n&#39;)
+
+# 8 deepcopy
+import copy
+list14 = [1,2,3,4,5]
+copy_list15 = copy.deepcopy(list14)
+print(copy_list15) #[1, 2, 3, 4, 5]
+print(id(list14)) #1364084713280
+print(id(copy_list15)) #1364084737088
+#print(&#39;\n&#39;)
+
+# 9 shallow-copy
+import copy
+list16 = [1,2,3,4,5]
+copy_list17 = copy.copy(list16)
+print(copy_list17) #[1, 2, 3, 4, 5]
+print(id(list16)) #1364086092928
+print(id(copy_list17)) #1364115976384
+#print(&#39;\n&#39;)
+
+-----------------------------------------------------------
+
+ex:
+
+word = input("Enter the word: ")
+
+vowel = ["a" , "e" , "i" , "o" , "u"]
+
+total = []
+
+count = 0
+
+for i in word:
+    if i in vowel and i not in total:
+        total.append(i)
+        count+=1
+print("The number of vowels is: ", count)
+print("The vowels present in the word is: ", total)
+
+
+------------------------------------------------------------
+
+.) Program to find wether it is a palindrome or not
+
+method 1
+---------
+s = "nitin"
+
+if s == s[::-1]:
+    print("It is a palindrome")
+else:
+    print("No, It is not a palindrome")
+
+ans: No, It is not a palindrome
+----
+
+
+method2
+--------
+s1 = input("Enter the name you want to check: ")
+
+n = len(s1)
+x= 0
+for i in range (n):
+    if s1[i] != s1[n-i-1]:
+        x = 1
+        break
+if x == 0:
+    print("Yes, It is a palindrome")
+else:
+    print("No , It is not a palindrome")
+
+ans : Enter the name you want to check: shukla
+      No , It is not a palindrome
+
+ans : Enter the name you want to check: nitin
+      Yes, It is a palindrome
+
+------------------------------------------------------
+
+# sort without using sort
+
+list1 = [5,8,44,32,1,9,7,6]
+
+n = len(list1)
+
+for i in range (n):
+    for j in range (i+1, n):
+        if list1[i]>list1[j]:
+            list1[i],list1[j] = list1[j],list1[i]
+print(list1)
+
+ans --> [1, 5, 6, 7, 8, 9, 32, 44]
+
+-------------------------------------------------------
+
+# sort a dictionary (sorted method)
+
+dict1 = {575:"Apple", 876:"Mongo", 132:"Grapes", 782:"Banana"}
+
+d = sorted(dict1.keys())
+
+dict2 = {}
+
+for i in d:
+    dict2[i] = dict1[i]
+
+print(dict2)
+
+ans --> {132: 'Grapes', 575: 'Apple', 782: 'Banana', 876: 'Mongo'}
+
+
+# sort a dictionary (comprehension)
+
+dict3 = {575:"Apple", 876:"Mongo", 132:"Grapes", 782:"Banana"}
+
+dict4 = {key: value for key,value in sorted (dict1.items(), key = lambda x:x[1])}
+
+ans --> {575: 'Apple', 782: 'Banana', 132: 'Grapes', 876: 'Mongo'}
+
+----------------------------------------------------------------------------------
+
+Input : "The sky is blue"
+Output : "blue is sky the"
+
+.) s = "The sky is blue"
+   s1 = s.split()
+   s2 = s1[::-1]
+   s3 = " ".join(s2)
+
+   print(s3)
+
+ans --> blue is sky The
+
+--------------------------------------------------------------------------------------
+                                             DJANGO ORM TOOLS
+                                           --------------------
+
+py manage.py shell
+
+from jsonapp.models import * 
+
+s1 = Farmer(1, "Vikas", "23", "100000", "New Delhi")
+>>> s1.save()                                            
+>>> s1 = Farmer.objects.all()
+>>> s1
+<QuerySet [<Farmer: Farmer object (1)>]>
+
+s1 = Farmer.objects.get().name[0] 
+>>> s1
+'V'
+
+>>> s1 = Farmer.objects.all()[0].name
+>>> s1
+'Vikas'
+>>> s1 = Farmer.objects.all()[0].loan_amount
+>>> s1
+100000.0
+>>> s1 = Farmer.objects.all()[0].address    
+>>> s1
+'New Delhi'
+>>> s1 = Farmer.objects.all()[0].id
+>>> s1
+1
+>>> s1 = Farmer(2, "Deepankar", "22", "43875", "Kanpur")
+>>> s1.save()
+>>> s1 = Farmer.objects.all()
+>>> s1
+<QuerySet [<Farmer: Farmer object (1)>, <Farmer: Farmer object (2)>]>
+>>> s1 = Farmer(3, "Khemraj", "25", "36543", "Alwar")
+>>> s1.save()
+>>> Farmer.objects.all().count()
+3
+
+>>> Farmer.objects.all().count() 
+3
+>>> Farmer.objects.bulk_create([Farmer(id="4", name="Chirag", age="25", loan_amount="34534", address="Patna"), Farmer(id="5", name="Ankush", age="25", loan_amount="346543", address="Amravati")])
+[<Farmer: Farmer object (4)>, <Farmer: Farmer object (5)>]
+
+>>> Farmer.objects.all()[3].name
+'Chirag'
+
+>>> Farmer.objects.get(pk=2)
+<Farmer: Farmer object (2)>
+
+>>> Farmer.objects.get(pk=2).address    
+'Kanpur'
+
+>>> Farmer.objects.get(pk=3).loan_amount
+36543.0
+
+>>> Farmer.objects.get(pk=10)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ChaubeyJi\PycharmProjects\returnjson\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ChaubeyJi\PycharmProjects\returnjson\venv\lib\site-packages\django\db\models\query.py", line 650, in get
+    raise self.model.DoesNotExist(
+jsonapp.models.Farmer.DoesNotExist: Farmer matching query does not exist.
+
+>>> Farmer.objects.get(id=3)
+<Farmer: Farmer object (3)>
+
+>>> Farmer.objects.get(id=3).name
+'Khemraj'
+
+>>> Farmer.objects.get(name="Vikas").id
+1
+
+>>> Farmer.objects.get(name="Khemraj").loan_amount
+36543.0
+
+>>> Farmer.objects.filter(name__startswith="C")
+<QuerySet [<Farmer: Farmer object (4)>]>
+
+>>> Farmer.objects.filter(name__startswith="C")[0].name   
+'Chirag'
+
+>>> Farmer.objects.filter(name__startswith="C")[0].age 
+25
+
+>>> Farmer.objects.filter(name__startswith="C")[0].address
+'Patna'
+
+>>> Farmer.objects.filter(address__startswith="P")[0].name 
+'Chirag'
+
+>>> Farmer.objects.exclude(name__startswith="V")
+<QuerySet [<Farmer: Farmer object (2)>, <Farmer: Farmer object (3)>, <Farmer: Farmer object (4)>, <Farmer: Farmer object (5)>]>
+
+>>> Farmer.objects.exclude(name__startswith="V")[0].name
+'Deepankar'
+
+>>> Farmer.objects.exclude(name__startswith="V")[1].name 
+'Khemraj'
+
+>>> Farmer.objects.exclude(name__startswith="V")[2].name 
+'Chirag'
+
+>>> Farmer.objects.exclude(name__startswith="V")[3].name 
+'Ankush'
+
+>>> Farmer.objects.filter(name__startswith="V")|Farmer.objects.filter(address__startswith="P")
+<QuerySet [<Farmer: Farmer object (1)>, <Farmer: Farmer object (4)>]>
+
+>>> from django.db.models import Q
+
+>>> Farmer.objects.filter(Q(name__startswith="V")|Q(address__startswith="P")) 
+<QuerySet [<Farmer: Farmer object (1)>, <Farmer: Farmer object (4)>]>
+
+>>> Farmer.objects.filter(Q(name__startswith="V")|Q(address__startswith="P"))[0].name
+'Vikas'
+
+>>> Farmer.objects.filter(Q(name__startswith="V")|Q(address__startswith="P"))[1].name 
+'Chirag'
+
+>>> Farmer.objects.filter(Q(name__startswith="V")|Q(address__startswith="P"))[1].address
+'Patna'
+
+>>> Farmer.objects.filter(Q(name__startswith="V")|Q(address__startswith="P"))[0].address 
+'New Delhi'
+
+>>> Farmer.objects.filter(name__startswith="V", address__startswith="A")
+<QuerySet []>
+
+>>> Farmer.objects.filter(name__startswith="V", address__startswith="N")      
+<QuerySet [<Farmer: Farmer object (1)>]>
+
+>>> Farmer.objects.all()[:2][0].name
+'Vikas'
+
+>>> Farmer.objects.all()[:2][1].name    
+'Deepankar'
+
+>>> Farmer.objects.all().order_by("name")[3].name
+'Khemraj'
+
+>>> Farmer.objects.filter(name__icontains="v")
+<QuerySet [<Farmer: Farmer object (1)>]>
+
+>>> Farmer.objects.filter(name__icontains="v")[0].name
+'Vikas'
+
+>>> Farmer.objects.filter(name__endswith="s")
+<QuerySet [<Farmer: Farmer object (1)>]>
+
+>>> Farmer.objects.filter(name__endswith="h")[0].name        
+'Ankush'
+
+>>> for i in Farmer.objects.all():
+...     print(i.age)
+... 
+23
+22
+25
+25
+25
+
+>>> for i in Farmer.objects.all():
+...     print(i.name) 
+... 
+Vikas
+Deepankar
+Khemraj
+Chirag
+Ankush
+
+>>> for i in Farmer.objects.all().order_by("name"):
+...  print(i.address)
+... 
+Amravati
+Patna
+Kanpur
+Alwar
+New Delhi
+
+>>> for i in Farmer.objects.all().order_by("name"):
+...  print(i.name)
+... 
+Ankush
+Chirag
+Deepankar
+Khemraj
+Vikas
+
+>>> Farmer.objects.filter(age__gte=22)
+<QuerySet [<Farmer: Farmer object (1)>, <Farmer: Farmer object (2)>, <Farmer: Farmer object (3)>, <Farmer: Farmer object (4)>, <Farmer: Farmer object (5)>]>
+
+>>> for i in Farmer.objects.filter(age__gte=22):
+...  print(i.age) 
+... 
+23
+22
+25
+25
+25
+
+>>> for i in Farmer.objects.filter(age__lte=22): 
+...  print(i.age)
+... 
+22
+
+>>> for i in Farmer.objects.order_by('-name'): 
+...  print(i.name)
+... 
+Vikas
+Khemraj
+Deepankar
+Chirag
+Ankush
+
+>>> from django.db.models import *
+
+>>> Farmer.objects.all().aggregate(Avg('loan_amount'))     
+{'loan_amount__avg': 112299.0}
+
+>>> Farmer.objects.all().aggregate(Avg('loan_amount'))
+{'loan_amount__avg': 112299.0}
+
+>>> Farmer.objects.all().aggregate(Min('loan_amount')) 
+{'loan_amount__min': 34534.0}
+
+>>> Farmer.objects.all().aggregate(Max('loan_amount'))
+{'loan_amount__max': 346543.0}
+
+>>> Farmer.objects.all().aggregate(Sum('loan_amount')) 
+{'loan_amount__sum': 561495.0}
+
+>>> s1 = Farmer()
+>>> s1.id = 7
+>>> s1.name = 'Ajit' 
+>>> s1.age = '25'
+>>> s1.loan_amount = '36537'
+>>> s1.address = 'Azamgarh'
+>>> s1.save()
+
+>>> s1 = Farmer.objects.all()
+>>> s1
+
+<QuerySet [<Farmer: Farmer object (1)>, <Farmer: Farmer object (2)>, <Farmer: Farmer object (3)>, <Farmer: Farmer object (4)>, <Farmer: Farmer object (5)>, <Farmer: Farmer object (7)>]>
+>>> for i in Farmer.objects.all():
+...  print(i.name)
+... 
+Vikas
+Deepankar
+Khemraj
+Chirag
+Ankush
+Ajit
+
+>>> for i in Farmer.objects.all().order_by('name'): 
+...  print(i.name)
+... 
+Ajit
+Ankush
+Chirag
+Deepankar
+Khemraj
+Vikas
+
+>>> for i in Farmer.objects.all().order_by('-name'):
+...  print(i.name)
+... 
+Vikas
+Khemraj
+Deepankar
+Chirag
+Ankush
+Ajit
+
+-------------------------------------------------------------------------------------------------------------
+
+                                          DJANGO THEORY
+                                         ----------------
+
+COMMANDS
+----------
+
+.) pip instal django --> command to install django.
+.) python -m django --version --> Command to check django version.
+.) pip freeze --> Command to check all the versions of installed modules.
+.) django-admin startproject project1 --> Command to create a project(then cd project1 ).
+.) djago-admin startapp app1/py manage.py startapp app1 --> Command to create an app.
+.) py manage.py runserver --> TO run a project(starts development server on the internal IP at port 8000).
+.) py manage.py runserver8080 --> to change the server port.
+.) py manage.py runserver 0.0.0.0:8000 --> to change the IP address.
+.) py manage.py makemigrations --> to create a migration file inside the migration folder.
+.) py manage.py migrate --> to reflect changes in the database permanentely.
+.) py manage.py sqlmigrate app_name migration_name --> To see raw sql query executing behind applied migration
+.) py manage.py showmigrations --> To see all migrations
+.) py manage.py showmigrations appname --> To see app-specific migrations by specifying app-name.
+.) python manage.py migrate --fake appname zero --> clear the migration history for each app
+.) python manage.py migrate --fake-initial --> fake the initial migration
+.) py manage.py createsuperuser --> To create a superuser
+.) python manage.py inspectdb --> Command to view a database schema of an existing ( or legacy ) database. 
+.) Modelname.objects.all() --> Command to view all items in a model.
+.) Modelname.objects.filter(name="NAME/ID/EMAIL") --> To filter Items in a model 
+.) Modelname.objects.get(id=25) --> Command to get a particular item in a model.
+.) Modelname.objects..filter(id=44).delete() --> Delete an object using QuerySet in Django
+.) QuerySet To Update an Object:
+        user_to_be_modify = User.objects.get(pk=3)
+        user_to_be_modify.city = "Gurugram"
+        user_to_be_modify.save() --> save is used to update any keyword in the end.
+.) QuerySet to Insert/Add an Object:
+        new_user = User(name="Vikas Chaubey", city="Gurugram")
+        new_user.save()
+.) How to combine Multiple QuerySet in a View?
+   i) By using Union Operator
+  ii) Using Itertools(Here we don't get a queryset , you'll get a list containing instances)
+
+
+1. What is Django? And why is it used?
+
+Django is a high-level Python web framework that enables the rapid development of secure and maintainable websites. It's free and open source. It takes care of much of the hassle of web development and allows you to focus on writing apps without any need to reinvent the wheel. 
+
+The purpose behind developing this framework is to make developers spend time on new application components instead of already developed components.
+
+The reasons why Django is most preferred are:
+
+The Django framework is fast and flexible.
+Suits for any web app development 
+It's secure and Scalable.
+Portable
+
+
+2. Is Django backend or front end?
+
+Django is suitable for both the backend and frontend. It's a collection of Python libraries that allow you to develop useful web apps ideal for backend and frontend purposes.
+
+
+3. What is the latest version of Django? And explain its features.
+
+The latest version of Django is Django 3.1. The new features of it are:
+
+Supports asynchronous views and middleware
+Provides JSON field support for all database backends
+Admin layout
+Path lib
+Code Reusability
+CDN Integration
+
+SECURE_REFERRER_POLICY
+
+
+4. What is the difference between Python and Django?
+
+Both Python and Django are intertwined but not the same. Python is a programming language used for various application developments: machine learning, artificial intelligence, desktop apps, etc.
+
+Django is a Python web framework used for full-stack app development and server development.
+
+Using core Python, you can build an app from scratch or craft the app with Django using prewritten bits of code
+
+
+5. What architecture does Django use?
+
+Django follows a software design pattern Model-View-Template (MVT) architecture.
+It is based on MVC. There is a slight difference that, django maintains its own conventions, so the controller is handled
+by the framework itself.
+
+It contains three different parts:
+
+Model: Logical data structure behind the entire app and signified by a database.
+View: The view is used to execute the business logic and interact with a model to carry data and render a template.
+Template: Deals with the presentation of data. It is the HTML file mixed with Django Template Language(DTL).
+Model template view
+
+
+6. Explain Django Architecture
+
+As discussed in the previous question, Django follows MVT architecture - Model, Template, View.
+
+The below diagram depicts the working cycle of Django MVT architecture: 
+
+Django Architecture
+
+From the diagram, you'll notice Template is on the Client side, and both the Model and View are on the Server side. Django uses request and response objects to communicate between the client and server.
+
+If the website receives the request, it is transmitted from browser to server to manage the view file using a template.
+
+After sending the correct URL request, the app logic and Model initiate the right response to the presented request. After that, a detailed response is sent back to View to check the response and transmit it as an HTTP response or desired user format. Then it again passes to the browser via Templates.
+
+For your clear understanding, let's take a real-life example:
+
+While logging into Django based website, you open the login page. It happens because View will process the request and send it to the login page URL. Then the response is sent from a server to the browser.
+
+After then, you'll enter the credentials in Template, and the data sent back to the View to rectify the request, and then data is presented in the Model. Then the Model verifies the data provided by the user in the connected database.
+
+If the user's data matches, it sends the related data (profile name, image, etc.) to the Views. 
+
+Otherwise, the model passes the negative result to the Views. 
+
+That's how the Django MVT architecture is working.
+
+
+7. Explain Django's code reusability.
+
+Compared to other frameworks, Django offers more code reusability. As Django is a combination of apps, copying those apps from one directory to another with some tweaks to the settings.py file won't need much time to write new applications from scratch.
+
+That is why Django is the rapid development framework, and this kind of code reusability is not allowed in any other framework.
+
+
+8. Is Django easy to learn?
+
+Yes, Django is an easy-to-learn framework compared to others. Having some knowledge of Python and web-working helps you to start developing with Django.
+
+
+9. What are the unique features of Django that make it a better framework?
+
+The best features of Django that make it better compared to others are:
+
+Compared to other open-source technologies, Django offers excellent documentation in the market.
+It's a
+ web framework and one of the main reasons that people started using it. It's the only one that can solve any kind of operation out there.
+Django is SEO optimized.
+Django is scalable and can flexibly switch from small to large-scale projects.
+Versatile in nature. Django allows you to build applications for various types of domains.
+It has a vast community to connect with and share.
+Provides rapid development
+
+
+10. What are the advantages of Django?
+
+Django has many advantages, but we'll look at major ones that differentiate it from other frameworks.
+
+Better CDN connectivity and content management
+Designed as batteries included framework
+Supports MVC programming paradigm
+Provides robust security features
+Accelerated custom web app development 
+Compatible with major operating systems and databases
+
+
+11. Describe the inheritance styles in Django?
+
+Django offers three inheritance styles:
+
+Abstract base classes: You use this style when you want the parent class to retain the data you don't want to type out for every child model.
+Multi-table inheritance: You use this style when you want to use a subclass on an existing model and want each model to have its database table.
+Proxy models: You use this style to modify Python-level behaviour with the models without changing the Model's field. 
+
+
+12. What are Django Models?
+
+A model is a definitive source of information about data, defined in the “app/models.py”. 
+
+Models work as an abstraction layer that structures and manipulates data. Django models are a subclass of the "django.db.models". Model class and the attributes in the models represent database fields.
+
+
+13. Give a brief about the settings.py file.
+
+As the name implies, it's the main settings file of the Django file. Everything inside the Django project, like databases, middlewares, backend engines, templating engines, installed applications, static file addresses, main URL configurations, allowed hosts and servers, and security key stores in this file as a dictionary or list.
+
+So when Django files start, it first executes the settings.py file and then loads the respective databases and engines to quickly serve the request.
+
+
+14. Is Django a CMS?
+
+No, Django is not CMS (Content Management System). It's just a web framework and programming tool that allows you to build websites.
+
+
+15. What are static files in Django? And how can you set them?
+
+In Django, static files are the files that serve the purpose of additional purposes such as images, CSS, or JavaScript files. Static files managed by “django.contrib.staticfiles”. There are three main things to do to set up static files in Django:
+
+1) Set STATIC_ROOT in settings.py
+
+2) Run manage.py collect static
+
+3) Set up a Static Files entry on the PythonAnywhere web tab
+
+
+16. What is the use of Middlewares in Django?
+
+Middlewares in Django is a lightweight plugin that processes during request and response execution. 
+It performs functions like security, CSRF protection, session, authentication, etc. Django supports various built-in middlewares.
+
+
+17. What is the difference between CharField and TextField in Django?
+
+TextField is a large text field for large-sized text. In Django, TextField is used to store paragraphs and all other text data. The default form widget for this field is TextArea.
+CharField is a string field used for small- to large-sized strings. It is like a string field in C/C++. In Django, CharField is used to store small strings like first name, last name, etc.
+
+
+18. Describe Django Field Class types?
+
+Every field in a model is an instance of the appropriate field class. In Django, field class types determine:
+
+The column type describes the database about what kind of data to store (e.g., INTEGER, VARCHAR, TEXT).
+The default HTML widget, while rendering a form field 
+(e.g. <input type="text">, <select>)
+The minimal validation requirements used in automatically generated forms and Django admin.
+
+
+19. What is the usage of "Django-admin.py" and "manage.py"?
+
+Django-admin.py - It is a command-line utility for administrative tasks. 
+manage.py - It is automatically created in each Django project and controls the Django project on the server or even to begin one. It has the following usage:
+
+Manages the project's package on the sys. path.
+Sets the DJANGO_SETTINGS_MODULE environment variable
+
+
+20. What are signals in Django?
+
+Django includes a "signal dispatcher" to notify decoupled applications when some action takes place in the framework. In a nutshell, signals allow specific senders to inform a suite of receivers that some action has occurred. They are instrumental when we use more pieces of code in the same events.
+
+Django provides a set of built-in signals that enable users to get notified of specific actions.
+
+Signal	Description
+Django.db.models.signals.pre_save(or)django.db.models.signals.post_save	Sent before or after a model’s save() method calls.
+django.db.models.signals.pre_delete  (or)django.db.models.signals.post_delete	Sent before or after a model’s delete() method or query set’s delete() method calls.
+django.db.models.signals.m2m_changed	We use this signal when ManyToManyField on a model changes.
+Django.core.signals.request_started(or)django.core.signals.request_finished	We use this signal when Django starts or finishes an HTTP request.
+Django Interview Questions for Experienced 
+
+
+21. What’s the difference between a project and an app in Django?
+
+The app is a module that deals with the dedicated requirements(or one specific use case) in a project. 
+On the other hand, the project covers an entire app. 
+In Django terms, a project can contain different apps, while an app features in various projects.
+
+
+22. Explain Django URL in brief?
+
+Django allows you to design URL functions however you want. For this, you need to create a Python module informally called URLconf (URL configuration).
+
+This module is purely a Python code and acts as a mapping between URL path expressions and Python functions. Also, this mapping can be as long or short as needed and can also reference other mappings.
+
+The length of this mapping can be as long or short as required and can also reference other mappings. Django also provides a way to translate URLs according to the active language.
+
+
+23. What are Django Exceptions?
+ 
+An exception is an abnormal event that leads to program failure. Django uses its exception classes and python exceptions as well to deal with such situations.
+
+We define Django core exceptions in "Django.core.exceptions". The following classes are present in this module:
+
+Exception 	          Description
+AppRegistryNotReady	     This class raises for using models before loading the app process.
+ObjectDoesNotExist	     It’s a base class for DoesNotExist exceptions.
+EmptyResultSet	This      exception arises when the query fails to return results.
+FieldDoesNotExist	     When the requested file does not exist, this exception arises.
+MultipleObjectsReturned	It raises by the query multiple objects returned when we expect only one object. 
+SuspiciousOperation	     It raises when the user has performed some operation, which is considered suspicious from a security perspective.
+PermissionDenied	     It arises when a user does not have permission to execute a specific action requested. 
+ViewDoesNotExist	     When the requested view does not exist, this exception raises.
+MiddlewareNotUsed	     When there is no middleware in server configuration, this exception arises.
+ImproperlyConfigured	When Django configuration is improper, this exception arises.
+FieldError	          When there is a problem with the model field, this exception arises.
+ValidationError	     It raises when data validation fails.
+
+
+24. Explain Django session
+
+Django uses the session to keep track of the state between the site and a particular browser. Django supports anonymous sessions. The session framework stores and retrieves data on a per-site-visitor basis. It stores the information on the server side and supports sending and receiving cookies. Cookies store the data of session ID but not the actual data itself.
+
+
+25. What are Django cookies?
+
+A cookie is a piece of information stored in the client's browser. To set and fetch cookies, Django provides built-in methods. We use the set_cookie() method for setting a cookie and the get() method for getting the cookie.
+
+You can also use the request.COOKIES['key'] array to get cookie values.
+
+
+26. Flask vs. Django: What's the difference between Flask & Django?
+
+Flask and Django are the two most popular Python web frameworks. The following table lists some significant differences between Django and Flask
+
+Comparison Factor	Django	Flask
+created	Django is a web development framework for Python. Its created in 2005	Flask is a web microframework offering basic features of web apps. Its created in 2010
+Project Type	High-level Python web framework for easy and simple projects.	Low-level Python web framework. 
+Features	The best features of Django are open-source, rapid development, robust documentation, great community, and easy to learn.	The best features of Flask are open source, lightweight, and require less code to develop an app.
+Type of Framework	Full-stack web framework	WSGI (Web Server Gateway Interface ) framework
+Templates, Admin, and ORM	Built-in	Requires installation
+Flexibility 	Django Web Framework supports a large number of third-party applications.	Flask Web Framework doesn't offer support for third-party applications.
+Companies using	Instagram, Coursera, Udemy.	Netflix, Reddit, Lyft, MIT
+Visual Debugging	Django does not support visual debugging.	Flask supports visual debugging.
+Bootstrapping tool	Builtin	Not available
+Working style	Offers monolithic working style	Offers diversified working style
+Project layout	The structure of the project layout is conventional.	The structure of the project layout for the flask is random.
+
+
+27. How to check the version of Django installed on your system?
+
+To check the version of Django installed on your system, open the command prompt and enter the following command:
+
+py -m django --version
+You can also try to import Django and use the get_version() method as follows:
+
+import django
+print(django.get_version())
+
+
+28. Give a brief about Django Admin.
+
+Django Admin is the command-line utility for administrative tasks. It's a preloaded interface to fulfill all web developer's needs and is imported from the "django.contrib packages". 
+
+Django Admin interface has its user authentication and offers advanced features like authorizing the access, CMS (Content Management System), managing various models, etc.
+
+You can even perform the following tasks using Django admin as listed out in the table:
+
+Command	Task
+django-admin help	         Displays the usage of the information and commands list provided by each application.
+django-admin help –command	Displays available commands
+django-admin help <command>	Displays the command description and its available options
+django-admin version	     Determines Django’s version
+django-admin make migrations	Depending on the changes done in the model creates new migrations
+django-admin migrate	     Synchronizes the database state with the present set of models and migrations
+django-admin runserver	     Starts the development server
+django-admin sendtestemail	 A test mail sent to confirm Django email working status
+django-admin shell	          Starts the Python interactive interpreter
+django-admin showmigrations	Displays all the project’s migrations
+
+
+29. How do you create a Django project?
+
+To create a Django project, navigate to the directory where you want to do a project and type the following command:
+
+$ django-admin startproject ABC
+That will create an "ABC" folder with the following structure −
+
+ABC/
+  manage.py
+  myproject/
+      __init__.py
+      settings.py
+      urls.py
+      wsgi.py
+Note: Here, "ABC" is the name of the project. You can mention any name you want.
+
+
+30. Name some companies using Django.
+
+Various companies out there are using Django. Of them, major are Instagram, Pinterest, Udemy, Mozilla Firefox, Reddit, etc.
+
+
+31. How do Django views work?
+
+Django views are the critical component of the framework They serve the purpose of encapsulation. They encapsulate the logic liable to process a user's request and return a response to the user.
+
+Either they return HTTP responses or raise an exception such as 404 in Django. Besides, Views also perform tasks like reading records from a database, generating PDF files, etc.
+
+Every app in Django comes with a views.py file, and this contains the views functions. Views function can be imported directly in the URLs file in Django.
+
+To achieve that, you have to import the view function in the urls.py file first and add the path/URL that the browser should request to call that View function.
+
+
+32. Give a brief about Django Template?
+
+Django Templates generate dynamic web pages. Using templates, you can show the static data and the data from various databases connected to the app through a context dictionary. You can create any number of templates based on project requirements. Even it's OK to have none of them.
+
+Django template engine handles the templating in the Django web framework. Some template syntaxes declare variables, filters, control logic, and comments.
+
+Django ships built-in backends for its template system called the Django template language (DTL).
+
+
+33. Describe Django ORM.
+
+In Django, the most notable feature is Object-Relational Mapper (ORM), which allows you to interact with app data from various relational databases such as SQLite, MySQL, and PostgreSQL. 
+
+Django ORM is the abstraction between web application data structure (models) and the database where the data is stored. Without writing any code, you can retrieve, delete, save, and perform other operations over the database.
+
+The main advantage of ORMs is rapid development. ORMs make projects more portable. It's easier to change the database with Django ORM.
+
+
+34. When to use iterators in Django ORM?
+
+Iterators are containers in Python containing several elements. Every object in the iterator implements two methods that are __init__() and the __next__() methods.
+
+In Django, the fair use of an iterator is when you process results that take up a large amount of memory space. For this, you can use the iterator() method, which evaluates the QuerySet and returns the corresponding iterator over the results.
+
+
+35. What is Django caching? And explain the strategies used to implement it.
+
+Caching is the process of saving expensive calculation output to avoid performing the same calculation again.
+
+Django supports a robust cache system to save web pages such that they don't have to be evaluated repeatedly for each request.
+
+They are few strategies to implement caching in Django, and the following table lists them:
+
+Strategy	Description 
+Memcached	The most efficient and faster memory-based cache server
+Filesystem caching	Cache files store in serial order in separate files.
+Local-memory caching	If you have not specified any other, this is the default cache. It’s per-process and threads safe as well.
+Database caching	Cache data will be stored in the database and works OK if you have a well-indexed database server.
+36. How does Django process a request?
+Whenever the Django Server receives a request, the system follows an algorithm to determine which Python code needs execution. Here are the steps that sum up the algorithm:
+
+Django checks the root URL configuration.
+Next, Django looks at all the variable URL patterns in the URLconf for the match of the requested URL
+If the URL matches, it returns the associated view function.
+It will then request the data from the Model of that app for any data requirement and pass it to the corresponding Template rendered by the browser. 
+Django sends an error-handling view if none of the URLs match the requested URL.
+
+
+37. Which Python version should be used with Django?
+
+Python 3 is the most recommended version for Django. Because it's faster, has more features, and is better supported. 
+
+
+38. Explain the file structure of a typical Django project.
+
+A typical Django project consists of these four files:
+
+manage.py
+settings.py
+__init__.py
+urls.py
+wsgi.py
+The final four files are inside a directory, which is at the same level as manage.py.
+
+manage.py is the command-line utility of your Django project and controls the Django project on the server.
+settings.py file includes information on all the apps installed in the project.
+The urls.py file acts as a map for the whole web project. 
+The __init__.py file is an empty file that makes the python interpreter understand that the directory consisting of settings.py is a module/ package.
+The wsgi.py file is for the server format WSGI
+
+
+39. Why is Django called a loosely coupled framework?
+
+Django is known as a loosely coupled framework beca+use of its MVT architecture.
+
+Django's architecture is a variant of MVC architecture, and MVT is beneficial because it completely discards server code from the client's machine. Models and Views are present on the client machine, and templates only return to the client.
+
+All the architecture components are different from each other. Both frontend and backend developers can work simultaneously on the projects as they won't affect each other when changed.
+
+
+40. What is the Django REST framework (DRF)?
+
+Django REST framework is a flexible and powerful toolkit for building Web APIs rapidly.
+
+The following are the significant reasons that are making REST framework perfect choice:
+
+Web browsable API 
+Authentication policies 
+Serialization
+Extensive documentation and excellent community support.
+Perfect for web apps since they have low bandwidth.
+Global companies like Red Hat, Mozilla, Heroku, Eventbrite, etc., trust this framework.
+
+
+Advanced Django Interview Questions
+
+
+41. Is Django too monolithic? Explain this statement.
+The Django framework is monolithic, which is valid to some extent. As Django's architecture is MVT-based, it requires some rules that developers need to follow to execute the appropriate files at the right time.
+
+With Django, you get significant customizations with implementations. Through this, you cannot change file names, variable names, and predefined lists.
+
+Django's file structure is a logical workflow. Thus the monolithic behavior of Django helps developers to understand the project efficiently.
+
+
+42. Explain user authentication in Django
+
+Django comes with a built-in user authentication system to handle objects such as users, groups, permissions, etc. It not only performs authentication but authorization as well. 
+
+Following are the system objects:
+
+users
+Groups
+Password Hashing System
+Permissions
+A pluggable backend system
+Forms Validation
+Apart from this, there are various third-party web apps that we can use instead of the default system to provide more user authentication with more features.
+
+
+43. What is the "django.shortcuts.render" function?
+
+When a View function returns a web page as HttpResponse instead of a simple string, we use the render function.
+
+Render is a shortcut for passing a data dictionary with a template. This function uses a templating engine to combine templates with a data dictionary.
+
+Finally, the render() returns the HttpResponse with the rendered text, the models' data.
+
+Syntax:
+
+render(request, template_name, context=None, content_type=None, status=None, using=None)
+The request generates a response.
+
+The template name and other parameters pass the dictionary.
+
+For more control, specify the content type, the data status you passed, and the render you are returning. 
+
+
+44. What is the use of forms in Django?
+
+Forms serve the purpose of receiving user inputs and using that data for logical operations on databases. Django supports form class to create HTML forms. It defines a form and how it works and appears.
+
+Django's forms handle the following parts:
+
+Prepares and restructures data to make it ready for rendering
+Creates HTML forms for the data
+Processes submitted forms and data from the client.
+
+
+45. Can you explain how to add View functions to the urls.py file?
+There are two ways to add the view function to the main URLs config:
+
+1. Adding a function View
+
+In this method, import the particular View's function and add the specific URL to the URL patterns list.
+
+2. Adding a Class-based view 
+
+This one is a more class-based approach. For this, import the class from the views.py and then add the URL to the URL patterns. An inbuilt method is needed to call the class as a view.
+
+Write the name of the function on the previous method as shown below:
+
+class_name.as_view()
+This will pass your view class as a view function.
+
+Both function-based and class-based have their advantages and disadvantages. Depending on the situation, you can use them to get the right results.
+
+
+46. Explain Django Security.
+
+Protecting user's data is an essential part of any website design. Django implements various sufficient protections against several common threats. The following are Django's security features:
+
+Cross-site scripting (XSS) protection
+SQL injection protection
+Cross-site request forgery (CSRF) protection
+Enforcing SSL/HTTPS
+Session security
+Clickjacking protection
+Host header validation
+
+
+47. What is Ajax in Django?
+AJAX (Asynchronous JavaScript And XML) allows web pages to update asynchronously to and from the server by exchanging data in Django. That means without reloading a complete webpage you can update parts of the web page.
+
+It involves a combination of a browser built-in XMLHttpRequest object, HTML DOM, and JavaScript.
+
+
+48. How to handle Ajax requests in Django?
+
+To handle Ajax requests in the Django web framework, perform the following:
+
+Initialize Project 
+Create models
+Create views
+Write URLs
+Carry out requests with Jquery Ajax.
+Register models to admin 
+
+
+49. What are Django generic views?
+
+Writing views is a heavy task. Django offers an easy way to set Views called Generic Views. They are classes but not functions and stored in "django.views.generic". 
+
+Generic views act as a shortcut for common usage patterns. They take some common idioms and patterns in view development and abstract them to write common views of data without repeating yourself quickly.
+
+
+50. What is the correct way to make a variable available to all your templates?
+
+In case all your templates need the same objects, use "RequestContext." This method takes HttpRequest as the first parameter and populates the context with a few variables simultaneously as per the engine's context_processors configuration option.
+
+
+Django FAQ
+
+
+51. Tell me how to use a file-based session?
+
+For this, we have to set the SESSION_ENGINE settings to “Django.contrib.sessions.backends.file.”
+
+
+52. What command-line loads data in Django?
+
+“Django-admin.py load data” loads data in Django. This command line performs data searching and loads the contents of the named fixtures into the database.
+
+
+53. What is CRUD?
+
+CRUS is an acronym for Create, Read, Update, and Delete. It’s a mnemonic framework used for constructing models when building application programming interfaces (APIs).
+
+
+54. Explain Django’s Request/Response Cycle.
+
+When a process starts, the Django server receives a request and checks for a matching URL in the project-defined URL patterns. If the URL matches, it executes the associated code in the view file with the URL and sends a response. If the server can’t find a matching URL, it invokes a 404-status code.
+
+
+55. What do you use middleware for in Django?
+
+For the following functions, you can use Middleware in Django:
+
+Cross-site request forgery protection
+Content Gzipping
+User authentication
+Session management
+
+
+56. Does Django support multiple-column primary keys?
+
+Django does not support multiple-column primary keys. It only supports single-column primary keys.
+
+
+57. What is a QuerySet?
+
+In the context of Django, QuerySet is a set of SQL queries. To see the SQL query from the Django filter call, type the command print(b.query).
+
+
+58. How to check the raw SQL queries running in Django??
+
+Make sure that the DEBUG setting is set to True, and type the following commands:
+
+from Django.db import connection
+connection.queries
+
+
+59. Are Django signals asynchronous?
+
+No, Django signals are synchronous. There is no background thread or asynchronous jobs to execute them. When we use signals in applications, they allow you to maintain the code to understand application behavior and solve issues faster and better.
+
+
+60. What are the Django disadvantages?
+
+Not suitable for small projects due to its monolithic size
+
+Everything connects on Django’s ORM.
+Everything must be defined explicitly due to a lack of convention.
+Django web framework has a steep learning curve.
+
+61) How a request is processed in a django ?
+ans --> Request>>manage.py(configurations present here point to the appropriate command in settings.py)>>
+        settings.py>>urls.py>>views.py>>models.py>>template
+
+62) Typical Django Project Directory
+
+    VikasProject/
+         manage.py
+         VikasProject/
+              __init__.py
+              asgi.py
+              settings.py
+              urls.py
+              wsgi.py
+
+--> manage.py -> Command-line utility that allows you to interact with Django project.
+                This file is used to control your Django project on the server or even to begin one.
+--> __init__.py -> Am empty file that tells Python that the current directory should be considered as a Python package.
+--> settings.py -> Comprises of the configurations of the current project like DB connections, middlewares, INSTALLED_APPS.
+--> urls.py -> All the urls of the project are present here.
+
+63) Typical Django App directory
+      
+      VikasApp/
+         __init__.py
+         admin.py
+         apps.py
+         migrations/
+             __init__.py
+         models.py
+         tests.py
+         views.py
+
+--> __init__.py -> An empty file that tells Python that the current directory should be considered as python package.
+
+--> admin.py -> Reads model metadata and provides an interface to manage app content.
+
+--> app.py -> Application configuration details for the app are included e.g. custom app name
+
+--> migrations -> Contains migrated model details with the corresponding database table structure.
+
+--> models.py -> A class for each model is defined with the model structure layout.
+
+--> tests.py -> App unit test automation classes are included in this.
+
+--> views.py -> Web based requests and response is configured in this file. 
+
+Que) Why Django is called as loosely connected framework?
+Ans -> Django has an MVT architecture. MVT helps in seperating the server code from the client code.
+       Django's Model and Views are present on the client machine and only templates return to the client.
+       These components are totally independent of each other and therefore, front-end developers and backend developers 
+       can work simultaneously on the project as these two parts keep changing 
+       with little to no effect on each other when changed. 
+
+Que) What is Django ORM ?
+Ans -> SQL query --> SELECT * FROM 
+
+
+
+# Shallow Copy
+l1 = [1,2,3]
+l2 = [1,2,3]
+l3 = [l1,l2]
+print(l3) #[[1, 2, 3], [1, 2, 3]]
+l4 = l3.copy()
+print(l4) # [[1, 2, 3], [1, 2, 3]]
+print(id(l3)) #2734265249088
+print(id(l4)) #2734265250560
+
+l1.append(10)
+print(l3) #[[1, 2, 3, 10], [1, 2, 3]]
+print(l4) #[[1, 2, 3, 10], [1, 2, 3]]
+
+l3.append(11)
+print(l3) #[[1, 2, 3, 10], [1, 2, 3], 11]
+print(l4) #[[1, 2, 3, 10], [1, 2, 3]]
+
+print(id(l3)) #2670172351680
+print(id(l4)) #2670172351680
+
+
+# Deep Copy
+
+l11 = [1,2,3]
+l21 = [1,2,3]
+l31 = [l11,l21]
+
+import copy
+
+l41 = copy.deepcopy(l31)
+
+print(l31) #[[1, 2, 3], [1, 2, 3]]
+print(l41) #[[1, 2, 3], [1, 2, 3]]
+print(id(l31)) #1597932154176
+print(id(l41)) #1597901194624
+
+l11.append(10)
+print(l31) #[[1, 2, 3, 10], [1, 2, 3]]
+print(l41) #[[1, 2, 3], [1, 2, 3]]
+
+print(id(l31)) #2421018766912
+print(id(l41)) #2420987479680
+
+---------------------------------------------------------------------------------------------------------
+
+>>> from app1.models import Employee               [e.errors, e.is_valid(), e.validated_data, e.save()]
+>>> from app1.serializers import EmployeeSerializer
+
+>>> e = EmployeeSerializer(data={})
+>>> e.is_valid()
+False
+>>> e.errors
+{'first_name': [ErrorDetail(string='This field is required.', code='required')], 'last_name': [ErrorDetail(string='This field is required.', code='required')], 'email': [ErrorDetail(string='This field is required.', code='required')], 'url': [ErrorDetail(string='This field is required.', code='required')]}
+                                            ^
+>>> e = EmployeeSerializer(data={"first_name":"Vinay", "last_name":"Krishna", "email":"sbscb@dfi.com", "url":"skcicinskncksn"}) 
+>>> e.is_valid()
+True
+>>> e.errors
+{}
+>>> e.validated_data 
+OrderedDict([('first_name', 'Vinay'), ('last_name', 'Krishna'), ('email', 'sbscb@dfi.com'), ('url', 'skcicinskncksn')])
+>>> e.save()
+<Employee: Employee object (3)>
+>>> e.data
+{'first_name': 'Vinay', 'last_name': 'Krishna', 'email': 'sbscb@dfi.com', 'url': 'skcicinskncksn'}
+>>> from django.contrib.auth.models import User
+
+>>> e = Employee.objects.all()[0]
+>>> e
+<Employee: Employee object (1)>
+>>> Employee.objects.all()[0]
+<Employee: Employee object (1)>
+
+>>> for emp in Employee.objects.all():
+...  print(emp) 
+... 
+Employee object (1)
+Employee object (2)
+Employee object (3)
+>>> for emp in Employee.objects.all():
+...  print(emp.first_name)
+... 
+vikas
+vikas
+Vinay
+>>> e = Employee.objects.all()[2]                 
+>>> e1 = EmployeeSerializer(e, data={"first_name":"Vikrant"})
+>>> e1.is_valid()
+False
+>>> e1.errors
+{'last_name': [ErrorDetail(string='This field is required.', code='required')], 'email': [ErrorDetail(string='This field is required.', code='required')], 'url': [ErrorDetail(string='This field is required.', code='required')]}
+>>> e1 = EmployeeSerializer(e, data={"first_name":"Vikrant"}, partial=True)
+>>> e1.is_valid()
+True
+>>> e1.save()
+<Employee: Employee object (3)>
+>>> e1.data
+{'first_name': 'Vikrant', 'last_name': 'Krishna', 'email': 'sbscb@dfi.com', 'url': 'skcicinskncksn'}
+>>> e = Employee.objects.all()[1] 
+>>> e2 = EmployeeSerializer(e, data={"first_name":"Vivek"}, partial=True)   
+>>> e2.save()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\ReactJs\RestAPI\CRUD\venv\lib\site-packages\rest_framework\serializers.py", line 180, in save
+    assert hasattr(self, '_errors'), (
+AssertionError: You must call `.is_valid()` before calling `.save()`.
+>>> e2.is_valid()
+True
+>>> emp = Employee.objects.all()
+>>> serialized = Employee(emp) 
+>>> serialized = Employee(emp)
+>>> serialized = EmployeeSerializer(emp)
+>>> serialized.data
+
+>>> serialized = EmployeeSerializer(emp[0])
+>>> serialized.data
+{'first_name': 'vikas', 'last_name': 'chaubey', 'email': 'gvjhjbugu@jkbb.com', 'url': 'k biibkm'}
+>>> serialized = EmployeeSerializer(emp, many=True)
+>>> serialized.data
+[OrderedDict([('first_name', 'vikas'), ('last_name', 'chaubey'), ('email', 'gvjhjbugu@jkbb.com'), ('url', 'k biibkm')]), 
+OrderedDict([('first_name', 'Vivek'), ('last_name', 'chaubey'), ('email', 'jbibibb@ji.com'), ('url', 'uvyyvvubbjb@jkbkn.com')]),
+OrderedDict([('first_name', 'Vikrant'), ('last_name', 'Krishna'), ('email', 'sbscb@dfi.com'), ('url', 'skcicinskncksn')])]
+>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+                                                        
+                                                       
+
+            
+                  
+
+   
+
+                   
+                  
+                  
+                  
+
+
+
+
+          
+             
+
+
+
+
+   
+
+
+
+
+
+
+  
+             
+                          
+
+
+
+
+
+
+
+
+
+  
+                   
+
+
+
