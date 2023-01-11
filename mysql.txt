@@ -1,0 +1,1830 @@
+.) create database practise;  ---> to create new database
+
+   create table Employee
+    -> (
+    -> eid int PRIMARY KEY,
+    -> name varchar(20),
+    -> sname varchar(20),
+    -> city varchar(20)
+    -> );
+
+.) CREATE DATABASE IF NOT EXISTS practise (no error will be thrown if we use this command)
+
+.) show databases;  ---> to show all databases present
+
+.) use practise; ---> to switch to required database
+
+.) show tables; --> to show all tables present in practise
+
+.) create table employee   ----> to create a table
+      (
+      eid int primary key,
+      ename varchar(50),
+      esurname varchar(60),
+      salary float
+      );
+
+   
+payslip, form no 16, experience
+
+.)  mysql> create table family5
+    -> (
+    -> fid int not null,
+    -> fname varchar(20) unique,
+    -> city varchar(20)
+    -> );
+    Query OK, 0 rows affected (0.04 sec)
+
+.) create table Teacher as (select * from student where 1=2); -->
+            create table with same structure as another table.
+
+.) create table stu select * from student; --> create table with same data and structure as another table.
+
+.) desc employee; --> to see all fields in table
+
+.) insert into employee values       --> to fill table with values
+     (1,'Ravindra','Jadeja',50000),
+     (2,'Mahendra','Singh',60000),
+     (3,'Sanju','Samson',70000);
+
+.) select * from employee;  --> to overlook all data entered in the table
+
+.) delete from employee where eid = 2; --> delete a row using fields(here row with eid = 2, gets deleted)
+
+.) drop table table_name; --> to remove the entire table from tables list
+
+.) truncate table table_name; -> to remove only data and fields remain unaffected.
+
+.) update employee               --> to update any table data
+      set ename = 'sanju bhai'
+      where ename = 'sanju';
+
+.) update employee               --> entire salary column will be updated with same data
+      set salary = 100000;
+
+.) update employee
+       set ename = 'mahi'
+       where eid = 3;
+
+.) select * from employee where eid > 2;
+
+   select * from employee where eid < 2;
+
+   select * from employee where eid <= 2;
+
+   select * from employee where eid >= 2;
+
+   select * from employee where eid in(1,2);
+
+   select * from employee where ename like 'm%'; --> all rows where name will be starting from m
+   
+   select * from employee where ename like '%a'; --> all rows where name will be ending from a
+
+   select * from employee where ename like '%u%'; 
+
+   select * from employee where ename like '____'; all rows with name of 4 alphabets(since there are four underscores)
+
+   mysql> select * from employee where city like "________";
+    +-----+----------+----------+----------+
+    | eid | name     | sname    | city     |
+    +-----+----------+--------- +----------+
+    |  11 | Vikas    | Chaubey  | Varanasi |
+    |  13 | Khushboo | Chaubey  | Varanasi |
+    +-----+----------+----------+----------+
+    2 rows in set (0.00 sec)
+
+    mysql> select * from employee where city like "___ _____";
+    +-----+-------+----------+-----------+
+    | eid | name  | sname    | city      |
+    +-----+-------+----------+-----------+
+    |  12 | Divya | Bhardwaj | New Delhi |
+    +-----+-------+----------+-----------+
+    1 row in set (0.00 sec)
+
+   select * from employee where eid = 3 and ename = 'mahi';
+
+   select * from employee where eid = 2 or ename = 'mahi';
+
+   select * from employee where eid between 1 and 3;
+
+   select * from teacher where eid in(1,3);  ---> finding specific values without using OR, BETWEEN, AND etc
+
+   select min(eid) from employee;
+
+   select max(eid) from employee;
+  
+   select avg(eid) from employee;
+
+   select add(eid) from employee;
+
+   select count(eid) from employee;
+
+.) drop database phone;  --> to delete the complete database
+
+ex: mysql> desc family1;
+    +-------+-------------+------+-----+---------+-------+
+    | Field | Type        | Null | Key | Default | Extra |
+    +-------+-------------+------+-----+---------+-------+
+    | eid   | int         | NO   |     | NULL    |       |
+    | name  | varchar(20) | YES  |     | NULL    |       |
+    | sname | varchar(20) | YES  |     | NULL    |       |
+    | city  | varchar(20) | YES  |     | NULL    |       |
+    +-------+-------------+------+-----+---------+-------+
+    4 rows in set (0.00 sec)
+    
+    mysql> drop table family1;
+    Query OK, 0 rows affected (0.02 sec)
+
+    mysql> desc family1;
+    ERROR 1146 (42S02): Table 'world4.family1' doesn't exist
+
+.) mysql> select * from guru where marks between 50 and 60;
+          +-----+--------+-------+
+          | gid | gname  | marks |
+          +-----+--------+-------+
+          |   3 | kavita |    58 |
+          +-----+--------+-------+
+          1 row in set (0.00 sec)
+
+.) select * from stu limit 5; --> To find first 5 records
+
+.) select * from stu order by s_id limit 5; --> To find first 5 records
+
+.)  select max(s_id) from stu (using sub query)
+    -> where s_id<(select max(s_id) from stu
+    -> where s_id<(select max(s_id) from stu)); --> Find third highest s_id 
+
+ex: +----------+
+    | max(eid) |
+    +----------+
+    |       19 |
+    +----------+
+    1 row in set (0.01 sec)
+ 
+.)  select max(s_id) from stu (using sub query)
+    -> where s_id<(select max(s_id) from stu); --> Find second highest salary.
+
+.)  mysql> select min(eid) from employee
+    -> where eid>(select min(eid) from employee
+    -> where eid>(select min(eid) from employee));
+ ex: +----------+
+     | min(eid) |
+     +----------+
+     |       13 |
+     +----------+
+     1 row in set (0.00 sec)           
+
+.) select s_id from stu (by using limit)
+    -> order by s_id desc limit n-1,1; --> to find nth highest salary
+
+ex-->  select s_id from stu (third highest salary)
+    -> order by s_id desc limit 2,1;
+        
+        
+ans --> mysql> select eid from employee;
+        +-----+
+        | eid |
+        +-----+
+        |  11 |
+        |  12 |
+        |  13 |
+        |  14 |
+        |  15 |
+        |  16 |
+        |  17 |
+        |  18 |
+        |  19 |
+        |  20 |
+        |  21 |
+        +-----+
+        11 rows in set (0.00 sec)
+
+        
+        mysql> select eid from employee
+        -> order by eid desc limit 3,1;
+        +-----+
+        | eid |
+        +-----+
+        |  18 |
+        +-----+
+        1 row in set (0.00 sec)
+
+ex --> select s_id from stu
+    -> order by s_id desc limit 3,2;
+
+ans --> +------+
+        | s_id |
+        +------+
+        |   16 |
+        |   15 |
+        +------+
+
+.)  select s_id from stu (by limit offset)
+    -> order by s_id desc
+    -> limit 1 offset n-1;
+
+ans -> mysql> select eid from employee;
+    +-----+
+    | eid |
+    +-----+
+    |  11 |
+    |  12 |
+    |  13 |
+    |  14 |
+    |  15 |
+    |  16 |
+    |  17 |
+    |  18 |
+    |  19 |
+    |  20 |
+    |  21 |
+    +-----+
+    11 rows in set (0.00 sec)
+
+    mysql> select eid from employee
+    -> order by eid desc
+    -> limit 1 offset 1;
+    +-----+
+    | eid |
+    +-----+
+    |  20 |
+    +-----+
+    1 row in set (0.00 sec)
+
+ex --> 
+       mysql> select s_id from stu
+    -> order by s_id desc
+    -> limit 1 offset 2;
+
+ans --> +------+
+        | s_id |
+        +------+
+        |   17 |
+        +------+
+
+.) select * from stu where eid%2=0; --> To fetch even number of records
+
+ex --> mysql> select * from employee where eid%2=0;
+       +-----+--------+----------+-----------+
+       | eid | name   | sname    | city      |
+       +-----+--------+----------+-----------+
+       |  12 | Divya  | Bhardwaj | New Delhi |
+       |  14 | Rani   | Chauhan  | Nagpur    |
+       |  16 | Ankush | Mugal    | Amravati  |
+       |  18 | Chirag | Gaur     | Palwal    |
+       |  20 | Rohit  | Dubbala  | Vijaywada |
+       +-----+--------+----------+-----------+
+       5 rows in set (0.01 sec)
+
+.) select * from stu where eid%2=1; --> To fetch odd number of records
+
+ex --> mysql> select * from employee where eid%2=1;
+       +-----+-----------+-----------+-----------+
+       | eid | name      | sname     | city      |
+       +-----+-----------+-----------+-----------+
+       |  11 | Vikas     | Chaubey   | Varanasi  |
+       |  13 | Khushboo  | Pandey    | Varanasi  |
+       |  15 | Deepankar | Sharma    | Kanpur    |
+       |  17 | Ajeet     | YAdav     | Azamgarh  |
+       |  19 | Meghna    | Srivastav | Gorakhpur |
+       |  21 | Swapnil   | Prakash   | Nagpur    |
+       +-----+-----------+-----------+-----------+
+       6 rows in set (0.00 sec)
+
+        ---------------------NOT NULL--------------------------------
+
+.)  create table student   --> cid cannot be left empty here since NOT NULL is used.
+       (
+       cid int NOT NULL,
+       name varchar(50),
+       product varchar(50)
+       );
+
+.) desc student;
+
+.) mysql> create table family5
+    -> (
+    -> fid int not null,
+    -> fname varchar(20) unique,
+    -> city varchar(20)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into family5(fname, city) values
+    -> ("vikas", "lucknow");
+ERROR 1364 (HY000): Field 'fid' doesn't have a default value
+mysql> insert into family5(fid, city) values
+    -> (101 , "lucknow");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from family5;
++-----+-------+---------+
+| fid | fname | city    |
++-----+-------+---------+
+| 101 | NULL  | lucknow |
++-----+-------+---------+
+1 row in set (0.00 sec)
+
+.) mysql> insert into student(cid,product)values
+    -> (1,'Mobile');
+
+.)  select * from student;
+
+        ------------------------UNIQUE-------------------------------
+
+.)  create table teacher
+       (
+       tid int UNIQUE,
+       name varchar(40),
+       salary float
+       );
+
+.)  show tables;
+
+.)  desc teacher;
+
+.) insert into teacher values
+     (1,'preeti','40000'),
+     (2,'prajita',50000);
+
+.) insert into teacher values
+       (2,'sonali','30000');
+ERROR 1062 (23000): Duplicate entry '2' for key 'teacher.tid'
+ 
+----------------------------------------------------
+
+Foreign Key -->
+               .) It is used to link two or more tables.
+               .) One table can contain multiple Foreign Keys.
+               .) Foreign Key in one table refers the primary key in another table.
+
+   REFRENTIAL OPTIONS
+   
+   1) CASCADE
+   2) SET NULL
+
+------------------FOREIGN KEY----------------------------
+
+ create table course
+     (
+     cid int,
+     cname varchar(60),
+     roll int,
+     foreign key(roll) references teacher(tid)  ON UPDATE CASCADE ON DELETE CASCADE
+     );
+
+ insert into teacher values
+    -> (5,'Akriti',55000);
+
+ insert into course values
+    -> (101,'Ankush',1),
+    -> (102,'Anup',2),
+    -> (103,'Anklesh',3),
+    -> (104,'Anuj',4),
+    -> (105,'Akhilesh',5);
+
+ delete from course where roll = 2;
+
+ delete from teacher where tid = 5;
+
+ update course
+     set cname = 'Atmaram'
+     where cid = 103;
+
+----------------------------------------------------
+
+Relationships in MySQL
+
+  1) One - to - One
+         Where one primary key is reffered by a single foreign key.
+
+  2) One - to - Many
+         Where one primary key is reffered to multiple foreign key.
+
+  3) Many - to - Many
+         When multiple foreign key are reffered by multiple foreign key.
+
+
+DEFAULT CONSTRAINT:
+       It is used to set a default value to the column.
+
+
+JOINS:
+   Joins are used to retrive the data from two or more tables.
+
+LEFT JOIN (LEFT OUTER JOIN):
+   It returns all the data from the left table and only the matching records from the right table.
+
+RIGHT JOIN (RIGHT OUTER JOIN):
+   It returns all the data from the right table and only the matching records from the left table.
+
+INNER JOIN:
+   It returns only the matching records from both the tables.
+
+DISTINCT CLAUSE:
+   It returns only the UNIQUE values from the specified column. 
+
+--------------------------------JOINS---------------------------------------------------
+
+create table Java
+     (
+     cname varchar(50),
+     cduration varchar(20),
+     roll int
+     );
+
+create table Python
+     (
+     cname varchar(50),
+     cduration varchar(20),
+     roll int
+     );
+
+desc java;
+
+desc python;
+
+insert into java values
+     ('Hibernate','11D',1),
+     ('Spring','12D',2),
+     ('SpringBOOT','13d',3),
+     ('MT','14D',4),
+     ('COREJAVA','15D',5);
+
+select * from java;
+
+insert into python values
+     ('CORE Python','16D',5),
+     ('PDBC','4D',4),
+     ('SQLAlchemy','12D',2),
+     ('Flask','15D',1),
+     ('Pyramid','12D',6);
+
+select * from python;
+
+select * from java
+     left join python
+     on java.roll = python.roll;
+
+select * from java
+     right join python
+     on python.roll = java.roll;
+
+select * from python
+     inner join java
+     on java.roll = python.roll;
+
+create table cpp
+     (
+     cname varchar(60),
+     cduration varchar(60),
+     roll int
+     );
+
+insert into cpp values
+     ('OOP','15D', 2),
+     ('EXCEPTION','2D',5);
+
+select * from java;
+
+select * from python;
+
+select * from cpp;
+
+select * from java
+     join python
+     on java.roll = python.roll
+     join cpp
+     on python.roll = cpp.roll;
+
+create table java2 as select * from java;
+
+insert into java2 select * from java;
+
+select * from java2;
+
+desc python;
+
+create table python2 as select * from python limit0;
+
+desc python2;
+
+select * from python2;
+
+select distinct(cname) from java2;
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+mysql> create table child
+    -> (
+    -> id int not null auto_increment primary key,
+    -> cname varchar(255),
+    -> dob date,
+    -> tob time,
+    -> dtob datetime);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc child;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int          | NO   | PRI | NULL    | auto_increment |
+| cname | varchar(255) | YES  |     | NULL    |                |
+| dob   | date         | YES  |     | NULL    |                |
+| tob   | time         | YES  |     | NULL    |                |
+| dtob  | datetime     | YES  |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+
+mysql> insert into child (cname, dob, tob, dtob) values
+    -> ("vinod", "1993-08-31", "05:05:55", "1993-08-31 05:05:55");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from child;
++----+-------+------------+----------+---------------------+
+| id | cname | dob        | tob      | dtob                |
++----+-------+------------+----------+---------------------+
+|  1 | vinod | 1993-08-31 | 05:05:55 | 1993-08-31 05:05:55 |
++----+-------+------------+----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2022-12-06 18:43:32 |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2022-12-06 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select curtime();
++-----------+
+| curtime() |
++-----------+
+| 18:44:00  |
++-----------+
+1 row in set (0.00 sec)
+
+
+mysql> insert into child (cname, dob, tob, dtob) values
+    -> ("vikas", curdate(), curtime(), now());
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from child;
++----+-------+------------+----------+---------------------+
+| id | cname | dob        | tob      | dtob                |
++----+-------+------------+----------+---------------------+
+|  1 | vinod | 1993-08-31 | 05:05:55 | 1993-08-31 05:05:55 |
+|  2 | vikas | 2022-12-06 | 18:46:40 | 2022-12-06 18:46:40 |
++----+-------+------------+----------+---------------------+
+2 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> inner join teacher t on s.sid = t.tid; # ANSI (AMERICAN NATIONAL STANDARD INSTITUTE) HERE JOIN & ON IS USED.
++-----------+----------+-----------+--------+
+| sname     | tname    | tsubject  | smarks |
++-----------+----------+-----------+--------+
+| Vikas     | Dorthy   | Hindi     |     67 |
+| Rohit     | Ruban    | Maths     |     97 |
+| Swapnil   | Santosh  | Biology   |     82 |
+| Rahul     | Mohan    | Chemistry |     43 |
+| Devashish | Jayshree | Physics   |     22 |
++-----------+----------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> , teacher t where s.sid = t.tid; # NON ANSI WAY for same output
++-----------+----------+-----------+--------+
+| sname     | tname    | tsubject  | smarks |
++-----------+----------+-----------+--------+
+| Vikas     | Dorthy   | Hindi     |     67 |
+| Rohit     | Ruban    | Maths     |     97 |
+| Swapnil   | Santosh  | Biology   |     82 |
+| Rahul     | Mohan    | Chemistry |     43 |
+| Devashish | Jayshree | Physics   |     22 |
++-----------+----------+-----------+--------+
+5 rows in set (0.00 sec)
+
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> inner join teacher t on s.sid = t.tid
+    -> where t.tsubject = "Hindi";
++-------+--------+----------+--------+
+| sname | tname  | tsubject | smarks |
++-------+--------+----------+--------+
+| Vikas | Dorthy | Hindi    |     67 |
++-------+--------+----------+--------+
+1 row in set (0.01 sec)
+
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> , teacher t where s.sid = t.tid
+    -> and t.tsubject = "Chemistry";
++-------+-------+-----------+--------+
+| sname | tname | tsubject  | smarks |
++-------+-------+-----------+--------+
+| Rahul | Mohan | Chemistry |     43 |
++-------+-------+-----------+--------+
+1 row in set (0.00 sec)
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> , teacher t where s.sid = t.tid
+    -> and t.tsubject = "Chemistry", "Hindi";
+ERROR 1064 (42000): You have an error in your SQL syntax; 
+check the manual that corresponds to your MySQL server version 
+for the right syntax to use near ', "Hindi"' at line 4
+
+--------------------------------------------------------------------------------------------------------
+
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> inner join teacher t on s.sid = t.tid
+    -> where t.tsubject = "Hindi";
++-------+--------+----------+--------+
+| sname | tname  | tsubject | smarks |
++-------+--------+----------+--------+
+| Vikas | Dorthy | Hindi    |     67 |
++-------+--------+----------+--------+
+1 row in set (0.01 sec)
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> inner join teacher t on s.sid = t.tid
+    -> where t.tsubject = "Hindi";
++-------+--------+----------+--------+
+| sname | tname  | tsubject | smarks |
++-------+--------+----------+--------+
+| Vikas | Dorthy | Hindi    |     67 |
++-------+--------+----------+--------+
+1 row in set (0.00 sec)
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> , teacher t where s.sid = t.tid
+    -> and t.tsubject = "Chemistry";
++-------+-------+-----------+--------+
+| sname | tname | tsubject  | smarks |
++-------+-------+-----------+--------+
+| Rahul | Mohan | Chemistry |     43 |
++-------+-------+-----------+--------+
+1 row in set (0.00 sec)
+
+mysql> select sname, tname, tsubject, smarks
+    -> from student s
+    -> , teacher t where s.sid = t.tid
+    -> and t.tsubject = "Chemistry", "Hindi";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', "Hindi"' at line 4
+
+
+mysql> use world20;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_world20 |
++-------------------+
+| shishya           |
+| student           |
+| students          |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from students;
++------+---------+---------------+------+
+| roll | name    | subject       | aank |
++------+---------+---------------+------+
+|   21 | mohit   | maths         |   85 |
+|   22 | pooja   | hindi         |   63 |
+|   23 | kalyani | English       |   78 |
+|   24 | vikas   | power         |   80 |
+|   25 | vikas   | mining        |   71 |
+|   26 | mohit   | physics       |   93 |
+|   27 | pooja   | Marathi       |   60 |
+|   28 | pratik  | Biology       |   79 |
+|   29 | Rohit   | English       |   95 |
+|   30 | Pooja   | Vyakaran      |   98 |
+|   31 | Mukesk  | Zoology       |   45 |
+|   32 | Divya   | Life Sciences |  100 |
+|   33 | swapnil | Maths         |   85 |
+|   34 | Rahul   | Marathi       |   71 |
+|   35 | Pooja   | Biology       |   71 |
+|   36 | Kalyani | Biology       |   54 |
+|   37 | Pratik  | Biology       |   90 |
+|   38 | Pranay  | Physics       |   88 |
+|   39 | Pratik  | Marathi       |   63 |
+|   40 | vikrant | Zoology       |   52 |
+|   41 | Modi    | Politics      |   52 |
+|   42 | Kalam   | Satellite     |   77 |
++------+---------+---------------+------+
+22 rows in set (0.00 sec)
+
+mysql> select avg(aank) from students;
++-----------+
+| avg(aank) |
++-----------+
+|        75 |
++-----------+
+1 row in set (0.00 sec)
+
+
+mysql> select *
+    -> from students
+    -> where aank > (select avg(aank) from students); # marks greater than avg marks
++------+---------+---------------+------+
+| roll | name    | subject       | aank |
++------+---------+---------------+------+
+|   21 | mohit   | maths         |   85 |
+|   23 | kalyani | English       |   78 |
+|   24 | vikas   | power         |   80 |
+|   26 | mohit   | physics       |   93 |
+|   28 | pratik  | Biology       |   79 |
+|   29 | Rohit   | English       |   95 |
+|   30 | Pooja   | Vyakaran      |   98 |
+|   32 | Divya   | Life Sciences |  100 |
+|   33 | swapnil | Maths         |   85 |
+|   37 | Pratik  | Biology       |   90 |
+|   38 | Pranay  | Physics       |   88 |
+|   42 | Kalam   | Satellite     |   77 |
++------+---------+---------------+------+
+12 rows in set (0.00 sec)
+
+mysql> # scalar subquery is the sub-query which will return single row and single column ex: (select avg(salary) from employee);
+mysql>
+
+mysql> select *
+    -> from students s
+    -> join (select avg(aank) mark from students) avg_aank
+    -> on s.aank > avg_aank.mark;
++------+---------+---------------+------+------+
+| roll | name    | subject       | aank | mark |
++------+---------+---------------+------+------+
+|   21 | mohit   | maths         |   85 |   75 |
+|   23 | kalyani | English       |   78 |   75 |
+|   24 | vikas   | power         |   80 |   75 |
+|   26 | mohit   | physics       |   93 |   75 |
+|   28 | pratik  | Biology       |   79 |   75 |
+|   29 | Rohit   | English       |   95 |   75 |
+|   30 | Pooja   | Vyakaran      |   98 |   75 |
+|   32 | Divya   | Life Sciences |  100 |   75 |
+|   33 | swapnil | Maths         |   85 |   75 |
+|   37 | Pratik  | Biology       |   90 |   75 |
+|   38 | Pranay  | Physics       |   88 |   75 |
+|   42 | Kalam   | Satellite     |   77 |   75 |
++------+---------+---------------+------+------+
+12 rows in set (0.00 sec)
+
+mysql> # multiple row sub query and multiple column sub query
+mysql>
+mysql> # que : students who have obtained highest marks in each subject
+mysql>
+mysql> select name, subject, max(marks)
+    -> from students
+    -> group by dept_name;
+ERROR 1054 (42S22): Unknown column 'marks' in 'field list'
+mysql> select name, subject, max(marks)
+    -> from students
+    -> group by aank;
+ERROR 1054 (42S22): Unknown column 'marks' in 'field list'
+mysql> select name, subject, max(aank)
+    -> from students
+    -> group by aank;
++---------+---------------+-----------+
+| name    | subject       | max(aank) |
++---------+---------------+-----------+
+| mohit   | maths         |        85 |
+| pooja   | hindi         |        63 |
+| kalyani | English       |        78 |
+| vikas   | power         |        80 |
+| vikas   | mining        |        71 |
+| mohit   | physics       |        93 |
+| pooja   | Marathi       |        60 |
+| pratik  | Biology       |        79 |
+| Rohit   | English       |        95 |
+| Pooja   | Vyakaran      |        98 |
+| Mukesk  | Zoology       |        45 |
+| Divya   | Life Sciences |       100 |
+| Kalyani | Biology       |        54 |
+| Pratik  | Biology       |        90 |
+| Pranay  | Physics       |        88 |
+| vikrant | Zoology       |        52 |
+| Kalam   | Satellite     |        77 |
++---------+---------------+-----------+
+17 rows in set (0.00 sec)
+
+mysql> select name, subject, max(marks)
+    -> from students
+    -> group by subject;
+ERROR 1054 (42S22): Unknown column 'marks' in 'field list'
+mysql> select name, subject, max(aank)
+    -> from students
+    -> group by subject;
++---------+---------------+-----------+
+| name    | subject       | max(aank) |
++---------+---------------+-----------+
+| mohit   | maths         |        85 |
+| pooja   | hindi         |        63 |
+| kalyani | English       |        95 |
+| vikas   | power         |        80 |
+| vikas   | mining        |        71 |
+| mohit   | physics       |        93 |
+| pooja   | Marathi       |        71 |
+| pratik  | Biology       |        90 |
+| Pooja   | Vyakaran      |        98 |
+| Mukesk  | Zoology       |        52 |
+| Divya   | Life Sciences |       100 |
+| Modi    | Politics      |        52 |
+| Kalam   | Satellite     |        77 |
++---------+---------------+-----------+
+13 rows in set (0.00 sec)
+
+
+
+mysql> select *
+    -> from students
+    -> where (name, subject, aank) in (select name, subject, max(aank)
+    ->                               from students
+    ->                               group by subject);
++------+--------+---------------+------+
+| roll | name   | subject       | aank |
++------+--------+---------------+------+
+|   21 | mohit  | maths         |   85 |
+|   22 | pooja  | hindi         |   63 |
+|   24 | vikas  | power         |   80 |
+|   25 | vikas  | mining        |   71 |
+|   26 | mohit  | physics       |   93 |
+|   30 | Pooja  | Vyakaran      |   98 |
+|   32 | Divya  | Life Sciences |  100 |
+|   37 | Pratik | Biology       |   90 |
+|   41 | Modi   | Politics      |   52 |
+|   42 | Kalam  | Satellite     |   77 |
++------+--------+---------------+------+
+10 rows in set (0.00 sec)
+
+mysql> # single column , multiple row sub query
+mysql> use world16;
+Database changed
+mysql> show tables;
++----------------------------+
+| Tables_in_world16          |
++----------------------------+
+| app1_colours               |
+| app1_people                |
+| app1_people_colors         |
+| app1_peopleaddress         |
+| app1_youtubevideo          |
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+15 rows in set (0.00 sec)
+
+mysql> use world17;
+Database changed
+mysql> show tables;
++----------------------------+
+| Tables_in_world17          |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+10 rows in set (0.00 sec)
+
+mysql> use world15;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_world15 |
++-------------------+
+| guru              |
+| stu               |
+| stu1              |
+| stu2              |
+| student           |
+| teacher           |
++-------------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from teacher;
++-----+----------+-----------+---------+
+| tid | tname    | tsubject  | tsalary |
++-----+----------+-----------+---------+
+|   1 | Dorthy   | Hindi     |   32000 |
+|   2 | Ruban    | Maths     |   54000 |
+|   3 | Santosh  | Biology   |   17000 |
+|   6 | Mohan    | Chemistry |   28500 |
+|   7 | Jayshree | Physics   |   64500 |
++-----+----------+-----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student;
++-----+-----------+--------+-----------+
+| sid | sname     | smarks | scity     |
++-----+-----------+--------+-----------+
+|   1 | Vikas     |     67 | Mumbai    |
+|   2 | Rohit     |     97 | Kashmir   |
+|   3 | Swapnil   |     82 | Kerala    |
+|   6 | Rahul     |     43 | Guwahati  |
+|   7 | Devashish |     22 | Hyderabad |
+|  10 | Rupali    |     75 | Baroda    |
++-----+-----------+--------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> use world20;
+Database changed
+mysql> select * from students;
++------+---------+---------------+------+
+| roll | name    | subject       | aank |
++------+---------+---------------+------+
+|   21 | mohit   | maths         |   85 |
+|   22 | pooja   | hindi         |   63 |
+|   23 | kalyani | English       |   78 |
+|   24 | vikas   | power         |   80 |
+|   25 | vikas   | mining        |   71 |
+|   26 | mohit   | physics       |   93 |
+|   27 | pooja   | Marathi       |   60 |
+|   28 | pratik  | Biology       |   79 |
+|   29 | Rohit   | English       |   95 |
+|   30 | Pooja   | Vyakaran      |   98 |
+|   31 | Mukesk  | Zoology       |   45 |
+|   32 | Divya   | Life Sciences |  100 |
+|   33 | swapnil | Maths         |   85 |
+|   34 | Rahul   | Marathi       |   71 |
+|   35 | Pooja   | Biology       |   71 |
+|   36 | Kalyani | Biology       |   54 |
+|   37 | Pratik  | Biology       |   90 |
+|   38 | Pranay  | Physics       |   88 |
+|   39 | Pratik  | Marathi       |   63 |
+|   40 | vikrant | Zoology       |   52 |
+|   41 | Modi    | Politics      |   52 |
+|   42 | Kalam   | Satellite     |   77 |
++------+---------+---------------+------+
+22 rows in set (0.00 sec)
+
+mysql> create table teacher
+    -> (
+    -> tid int not null auto_increment primary key,
+    -> tname VARCHER(20),
+    -> tsubject VARCHAR(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHER(20),
+tsubject VARCHAR(20))' at line 4
+mysql> create table teacher
+    -> (
+    -> tid int not null auto_increment primary key,
+    -> tname VARCHAR(20),
+    -> tsubject VARCHAR(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc teacher;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| tid      | int         | NO   | PRI | NULL    | auto_increment |
+| tname    | varchar(20) | YES  |     | NULL    |                |
+| tsubject | varchar(20) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into teacher values
+    -> ("Ruban", "maths"),
+    -> ("Santosh", "biology"),
+    -> ("Jayshree", "Physics"),
+    -> ("Renuka", "Zoology"),
+    -> ("Ankit", "Mining"),
+    -> ("Praful", "Power");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into teacher (tname, tsubject) values
+    -> ("Ruban", "maths"),
+    -> ("Santosh", "biology"),
+    -> ("Jayshree", "Physics"),
+    -> ("Renuka", "Zoology"),
+    -> ("Ankit", "Mining"),
+    -> ("Praful", "Power");
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from teacher;
++-----+----------+----------+
+| tid | tname    | tsubject |
++-----+----------+----------+
+|   1 | Ruban    | maths    |
+|   2 | Santosh  | biology  |
+|   3 | Jayshree | Physics  |
+|   4 | Renuka   | Zoology  |
+|   5 | Ankit    | Mining   |
+|   6 | Praful   | Power    |
++-----+----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from students;
++------+---------+---------------+------+
+| roll | name    | subject       | aank |
++------+---------+---------------+------+
+|   21 | mohit   | maths         |   85 |
+|   22 | pooja   | hindi         |   63 |
+|   23 | kalyani | English       |   78 |
+|   24 | vikas   | power         |   80 |
+|   25 | vikas   | mining        |   71 |
+|   26 | mohit   | physics       |   93 |
+|   27 | pooja   | Marathi       |   60 |
+|   28 | pratik  | Biology       |   79 |
+|   29 | Rohit   | English       |   95 |
+|   30 | Pooja   | Vyakaran      |   98 |
+|   31 | Mukesk  | Zoology       |   45 |
+|   32 | Divya   | Life Sciences |  100 |
+|   33 | swapnil | Maths         |   85 |
+|   34 | Rahul   | Marathi       |   71 |
+|   35 | Pooja   | Biology       |   71 |
+|   36 | Kalyani | Biology       |   54 |
+|   37 | Pratik  | Biology       |   90 |
+|   38 | Pranay  | Physics       |   88 |
+|   39 | Pratik  | Marathi       |   63 |
+|   40 | vikrant | Zoology       |   52 |
+|   41 | Modi    | Politics      |   52 |
+|   42 | Kalam   | Satellite     |   77 |
++------+---------+---------------+------+
+22 rows in set (0.00 sec)
+
+mysql> # single column, multiple row sub query
+mysql>
+mysql>
+mysql> # find the subjects that donot have any teacher
+mysql>
+mysql> select distinct subject from students;
++---------------+
+| subject       |
++---------------+
+| maths         |
+| hindi         |
+| English       |
+| power         |
+| mining        |
+| physics       |
+| Marathi       |
+| Biology       |
+| Vyakaran      |
+| Zoology       |
+| Life Sciences |
+| Politics      |
+| Satellite     |
++---------------+
+13 rows in set (0.00 sec)
+
+mysql> select *
+    -> from teacher
+    -> where subject not in (select distinct subject from students);
+ERROR 1054 (42S22): Unknown column 'subject' in 'IN/ALL/ANY subquery'
+mysql> select *
+    -> from teacher
+    -> where tsubject not in (select distinct subject from students);
+Empty set (0.00 sec)
+
+mysql> alter table teacher
+    -> rename column tsubject to subject;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from teacher;
++-----+----------+---------+
+| tid | tname    | subject |
++-----+----------+---------+
+|   1 | Ruban    | maths   |
+|   2 | Santosh  | biology |
+|   3 | Jayshree | Physics |
+|   4 | Renuka   | Zoology |
+|   5 | Ankit    | Mining  |
+|   6 | Praful   | Power   |
++-----+----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select *
+    -> from teacher
+    -> where subject not in (select distinct subject from students);
+Empty set (0.00 sec)
+
+mysql> select distinct subject from teacher;
++---------+
+| subject |
++---------+
+| maths   |
+| biology |
+| Physics |
+| Zoology |
+| Mining  |
+| Power   |
++---------+
+6 rows in set (0.00 sec)
+
+mysql> select *
+    -> from students
+    -> where subject not in (select distinct stuject from teacher);
+ERROR 1054 (42S22): Unknown column 'stuject' in 'field list'
+mysql> select *
+    -> from students
+    -> where subject not in (select distinct subject from teacher);
++------+---------+---------------+------+
+| roll | name    | subject       | aank |
++------+---------+---------------+------+
+|   22 | pooja   | hindi         |   63 |
+|   23 | kalyani | English       |   78 |
+|   27 | pooja   | Marathi       |   60 |
+|   29 | Rohit   | English       |   95 |
+|   30 | Pooja   | Vyakaran      |   98 |
+|   32 | Divya   | Life Sciences |  100 |
+|   34 | Rahul   | Marathi       |   71 |
+|   39 | Pratik  | Marathi       |   63 |
+|   41 | Modi    | Politics      |   52 |
+|   42 | Kalam   | Satellite     |   77 |
++------+---------+---------------+------+
+10 rows in set (0.00 sec)
+
+mysql> # co related sub query is a sub query which is related to the outer query
+mysql>
+mysql> select * from students;
++------+---------+---------------+------+
+| roll | name    | subject       | aank |
++------+---------+---------------+------+
+|   21 | mohit   | maths         |   85 |
+|   22 | pooja   | hindi         |   63 |
+|   23 | kalyani | English       |   78 |
+|   24 | vikas   | power         |   80 |
+|   25 | vikas   | mining        |   71 |
+|   26 | mohit   | physics       |   93 |
+|   27 | pooja   | Marathi       |   60 |
+|   28 | pratik  | Biology       |   79 |
+|   29 | Rohit   | English       |   95 |
+|   30 | Pooja   | Vyakaran      |   98 |
+|   31 | Mukesk  | Zoology       |   45 |
+|   32 | Divya   | Life Sciences |  100 |
+|   33 | swapnil | Maths         |   85 |
+|   34 | Rahul   | Marathi       |   71 |
+|   35 | Pooja   | Biology       |   71 |
+|   36 | Kalyani | Biology       |   54 |
+|   37 | Pratik  | Biology       |   90 |
+|   38 | Pranay  | Physics       |   88 |
+|   39 | Pratik  | Marathi       |   63 |
+|   40 | vikrant | Zoology       |   52 |
+|   41 | Modi    | Politics      |   52 |
+|   42 | Kalam   | Satellite     |   77 |
++------+---------+---------------+------+
+22 rows in set (0.00 sec)
+
+mysql> # find students whoose marks are more than avg marks in a subject
+mysql>
+mysql> select *
+    -> from student s1
+    -> where aank > (select avg(aank)
+    ->               from student s2
+    ->               where s2.aank = s1.aank);
+Empty set (0.00 sec)
+
+mysql> select *
+    -> from students s1
+    -> where aank > (select avg(aank)
+    ->               from students s2
+    ->               where s2.aank = s1.aank);
+Empty set (0.00 sec)
+
+mysql> select max(aank) as kirimitimenda from students;
++---------------+
+| kirimitimenda |
++---------------+
+|           100 |
++---------------+
+1 row in set (0.00 sec)
+
+
+mysql> select name, max(aank) as maximum_marks
+    -> from students
+    -> group by name;
++---------+---------------+
+| name    | maximum_marks |
++---------+---------------+
+| mohit   |            93 |
+| pooja   |            98 |
+| kalyani |            78 |
+| vikas   |            80 |
+| pratik  |            90 |
+| Rohit   |            95 |
+| Mukesk  |            45 |
+| Divya   |           100 |
+| swapnil |            85 |
+| Rahul   |            71 |
+| Pranay  |            88 |
+| vikrant |            52 |
+| Modi    |            52 |
+| Kalam   |            77 |
++---------+---------------+
+14 rows in set (0.00 sec)
+
+mysql> select e.*,
+    -> max(salary) over() as max_salary
+    -> from employee e;
+ERROR 1146 (42S02): Table 'world20.employee' doesn't exist
+mysql> select s.*,
+    -> max(aank) over() as max_aank
+    -> from students s;
++------+---------+---------------+------+----------+
+| roll | name    | subject       | aank | max_aank |
++------+---------+---------------+------+----------+
+|   21 | mohit   | maths         |   85 |      100 |
+|   22 | pooja   | hindi         |   63 |      100 |
+|   23 | kalyani | English       |   78 |      100 |
+|   24 | vikas   | power         |   80 |      100 |
+|   25 | vikas   | mining        |   71 |      100 |
+|   26 | mohit   | physics       |   93 |      100 |
+|   27 | pooja   | Marathi       |   60 |      100 |
+|   28 | pratik  | Biology       |   79 |      100 |
+|   29 | Rohit   | English       |   95 |      100 |
+|   30 | Pooja   | Vyakaran      |   98 |      100 |
+|   31 | Mukesk  | Zoology       |   45 |      100 |
+|   32 | Divya   | Life Sciences |  100 |      100 |
+|   33 | swapnil | Maths         |   85 |      100 |
+|   34 | Rahul   | Marathi       |   71 |      100 |
+|   35 | Pooja   | Biology       |   71 |      100 |
+|   36 | Kalyani | Biology       |   54 |      100 |
+|   37 | Pratik  | Biology       |   90 |      100 |
+|   38 | Pranay  | Physics       |   88 |      100 |
+|   39 | Pratik  | Marathi       |   63 |      100 |
+|   40 | vikrant | Zoology       |   52 |      100 |
+|   41 | Modi    | Politics      |   52 |      100 |
+|   42 | Kalam   | Satellite     |   77 |      100 |
++------+---------+---------------+------+----------+
+22 rows in set (0.01 sec)
+
+mysql> select s.*,
+    -> max(aank) over(partition by subject) as max_aank
+    -> from students s;
++------+---------+---------------+------+----------+
+| roll | name    | subject       | aank | max_aank |
++------+---------+---------------+------+----------+
+|   28 | pratik  | Biology       |   79 |       90 |
+|   35 | Pooja   | Biology       |   71 |       90 |
+|   36 | Kalyani | Biology       |   54 |       90 |
+|   37 | Pratik  | Biology       |   90 |       90 |
+|   23 | kalyani | English       |   78 |       95 |
+|   29 | Rohit   | English       |   95 |       95 |
+|   22 | pooja   | hindi         |   63 |       63 |
+|   32 | Divya   | Life Sciences |  100 |      100 |
+|   27 | pooja   | Marathi       |   60 |       71 |
+|   34 | Rahul   | Marathi       |   71 |       71 |
+|   39 | Pratik  | Marathi       |   63 |       71 |
+|   21 | mohit   | maths         |   85 |       85 |
+|   33 | swapnil | Maths         |   85 |       85 |
+|   25 | vikas   | mining        |   71 |       71 |
+|   26 | mohit   | physics       |   93 |       93 |
+|   38 | Pranay  | Physics       |   88 |       93 |
+|   41 | Modi    | Politics      |   52 |       52 |
+|   24 | vikas   | power         |   80 |       80 |
+|   42 | Kalam   | Satellite     |   77 |       77 |
+|   30 | Pooja   | Vyakaran      |   98 |       98 |
+|   31 | Mukesk  | Zoology       |   45 |       52 |
+|   40 | vikrant | Zoology       |   52 |       52 |
++------+---------+---------------+------+----------+
+22 rows in set (0.01 sec)
+
+mysql> # window function
+mysql>
+mysql> # ROW_NUMBER
+mysql>
+mysql> # ROW_NUMBER : IT ASSIGNS UNIQUE VALUE TO EACH OF THE RECORDS IN THE TABLE
+mysql>
+mysql> SELECT S.*,
+    -> ROW_NUMBER () OVER () BY SUBJECT AS SUB
+    -> FROM STUDENT S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY SUBJECT AS SUB
+FROM STUDENT S' at line 2
+mysql> SELECT S.*,
+    -> ROW_NUMBER () OVER () AS SUB
+    -> FROM STUDENT S;
+Empty set (0.01 sec)
+
+mysql> SELECT S.*,
+    -> ROW_NUMBER () OVER () BY SUBJECT AS SUB
+    -> ^C
+mysql> SELECT S.*,
+    -> ROW_NUMBER () OVER () AS SUB
+    -> FROM STUDENTS S;
++------+---------+---------------+------+-----+
+| roll | name    | subject       | aank | SUB |
++------+---------+---------------+------+-----+
+|   21 | mohit   | maths         |   85 |   1 |
+|   22 | pooja   | hindi         |   63 |   2 |
+|   23 | kalyani | English       |   78 |   3 |
+|   24 | vikas   | power         |   80 |   4 |
+|   25 | vikas   | mining        |   71 |   5 |
+|   26 | mohit   | physics       |   93 |   6 |
+|   27 | pooja   | Marathi       |   60 |   7 |
+|   28 | pratik  | Biology       |   79 |   8 |
+|   29 | Rohit   | English       |   95 |   9 |
+|   30 | Pooja   | Vyakaran      |   98 |  10 |
+|   31 | Mukesk  | Zoology       |   45 |  11 |
+|   32 | Divya   | Life Sciences |  100 |  12 |
+|   33 | swapnil | Maths         |   85 |  13 |
+|   34 | Rahul   | Marathi       |   71 |  14 |
+|   35 | Pooja   | Biology       |   71 |  15 |
+|   36 | Kalyani | Biology       |   54 |  16 |
+|   37 | Pratik  | Biology       |   90 |  17 |
+|   38 | Pranay  | Physics       |   88 |  18 |
+|   39 | Pratik  | Marathi       |   63 |  19 |
+|   40 | vikrant | Zoology       |   52 |  20 |
+|   41 | Modi    | Politics      |   52 |  21 |
+|   42 | Kalam   | Satellite     |   77 |  22 |
++------+---------+---------------+------+-----+
+22 rows in set (0.00 sec)
+
+mysql> SELECT S.*,
+    -> ROW_NUMBER (PARTITION BY SUBJECT) OVER () AS SUB
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PARTITION BY SUBJECT) OVER () AS SUB
+FROM STUDENTS S' at line 2
+mysql> SELECT S.*,
+    -> ROW_NUMBER () OVER (PARTITION BY SUBJECT) AS SUB
+    -> FROM STUDENTS S;
++------+---------+---------------+------+-----+
+| roll | name    | subject       | aank | SUB |
++------+---------+---------------+------+-----+
+|   28 | pratik  | Biology       |   79 |   1 |
+|   35 | Pooja   | Biology       |   71 |   2 |
+|   36 | Kalyani | Biology       |   54 |   3 |
+|   37 | Pratik  | Biology       |   90 |   4 |
+|   23 | kalyani | English       |   78 |   1 |
+|   29 | Rohit   | English       |   95 |   2 |
+|   22 | pooja   | hindi         |   63 |   1 |
+|   32 | Divya   | Life Sciences |  100 |   1 |
+|   27 | pooja   | Marathi       |   60 |   1 |
+|   34 | Rahul   | Marathi       |   71 |   2 |
+|   39 | Pratik  | Marathi       |   63 |   3 |
+|   21 | mohit   | maths         |   85 |   1 |
+|   33 | swapnil | Maths         |   85 |   2 |
+|   25 | vikas   | mining        |   71 |   1 |
+|   26 | mohit   | physics       |   93 |   1 |
+|   38 | Pranay  | Physics       |   88 |   2 |
+|   41 | Modi    | Politics      |   52 |   1 |
+|   24 | vikas   | power         |   80 |   1 |
+|   42 | Kalam   | Satellite     |   77 |   1 |
+|   30 | Pooja   | Vyakaran      |   98 |   1 |
+|   31 | Mukesk  | Zoology       |   45 |   1 |
+|   40 | vikrant | Zoology       |   52 |   2 |
++------+---------+---------------+------+-----+
+22 rows in set (0.00 sec)
+
+mysql> SELECT S.*,
+    -> ROW_NUMBER () OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS SUB
+    -> FROM STUDENTS S;
++------+---------+---------------+------+-----+
+| roll | name    | subject       | aank | SUB |
++------+---------+---------------+------+-----+
+|   28 | pratik  | Biology       |   79 |   1 |
+|   35 | Pooja   | Biology       |   71 |   2 |
+|   36 | Kalyani | Biology       |   54 |   3 |
+|   37 | Pratik  | Biology       |   90 |   4 |
+|   23 | kalyani | English       |   78 |   1 |
+|   29 | Rohit   | English       |   95 |   2 |
+|   22 | pooja   | hindi         |   63 |   1 |
+|   32 | Divya   | Life Sciences |  100 |   1 |
+|   27 | pooja   | Marathi       |   60 |   1 |
+|   34 | Rahul   | Marathi       |   71 |   2 |
+|   39 | Pratik  | Marathi       |   63 |   3 |
+|   21 | mohit   | maths         |   85 |   1 |
+|   33 | swapnil | Maths         |   85 |   2 |
+|   25 | vikas   | mining        |   71 |   1 |
+|   26 | mohit   | physics       |   93 |   1 |
+|   38 | Pranay  | Physics       |   88 |   2 |
+|   41 | Modi    | Politics      |   52 |   1 |
+|   24 | vikas   | power         |   80 |   1 |
+|   42 | Kalam   | Satellite     |   77 |   1 |
+|   30 | Pooja   | Vyakaran      |   98 |   1 |
+|   31 | Mukesk  | Zoology       |   45 |   1 |
+|   40 | vikrant | Zoology       |   52 |   2 |
++------+---------+---------------+------+-----+
+22 rows in set (0.00 sec)
+
+mysql> #TO FETCH SINGLE RECORD FOR EACH SUBJECT
+mysql>
+mysql>
+
+
+mysql> SELECT * FROM (SELECT S.*, ROW_NUMBER () OVER (PARTITION BY SUBJECT ORDER BY ROLL) FROM STUDENTS S) X WHERE X.ROLL < 1;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM (SELECT S.*, ROW_NUMBER () OVER (PARTITION BY NAME ORDER BY ROLL) FROM STUDENTS S) X WHERE X.ROLL < 1;
+Empty set (0.00 sec)
+
+mysql> # RANK
+mysql>
+mysql>
+
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk
+    -> from students s;
++------+---------+---------------+------+-----+
+| roll | name    | subject       | aank | rnk |
++------+---------+---------------+------+-----+
+|   37 | Pratik  | Biology       |   90 |   1 |
+|   28 | pratik  | Biology       |   79 |   2 |
+|   35 | Pooja   | Biology       |   71 |   3 |
+|   36 | Kalyani | Biology       |   54 |   4 |
+|   29 | Rohit   | English       |   95 |   1 |
+|   23 | kalyani | English       |   78 |   2 |
+|   22 | pooja   | hindi         |   63 |   1 |
+|   32 | Divya   | Life Sciences |  100 |   1 |
+|   34 | Rahul   | Marathi       |   71 |   1 |
+|   39 | Pratik  | Marathi       |   63 |   2 |
+|   27 | pooja   | Marathi       |   60 |   3 |
+|   21 | mohit   | maths         |   85 |   1 |
+|   33 | swapnil | Maths         |   85 |   1 |
+|   25 | vikas   | mining        |   71 |   1 |
+|   26 | mohit   | physics       |   93 |   1 |
+|   38 | Pranay  | Physics       |   88 |   2 |
+|   41 | Modi    | Politics      |   52 |   1 |
+|   24 | vikas   | power         |   80 |   1 |
+|   42 | Kalam   | Satellite     |   77 |   1 |
+|   30 | Pooja   | Vyakaran      |   98 |   1 |
+|   40 | vikrant | Zoology       |   52 |   1 |
+|   31 | Mukesk  | Zoology       |   45 |   2 |
++------+---------+---------------+------+-----+
+22 rows in set (0.00 sec)
+
+mysql>
+mysql> # DENSE RANK
+mysql>
+mysql>
+mysql> # RANK SKIPS A VALUE FOR EVERY DENSE RANK VALUE, BUT DENSE RANK WILL NOT.
+mysql>
+
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk
+    -> FROM STUDENTS S;
++------+---------+---------------+------+-----+
+| roll | name    | subject       | aank | rnk |
++------+---------+---------------+------+-----+
+|   37 | Pratik  | Biology       |   90 |   1 |
+|   28 | pratik  | Biology       |   79 |   2 |
+|   35 | Pooja   | Biology       |   71 |   3 |
+|   36 | Kalyani | Biology       |   54 |   4 |
+|   29 | Rohit   | English       |   95 |   1 |
+|   23 | kalyani | English       |   78 |   2 |
+|   22 | pooja   | hindi         |   63 |   1 |
+|   32 | Divya   | Life Sciences |  100 |   1 |
+|   34 | Rahul   | Marathi       |   71 |   1 |
+|   39 | Pratik  | Marathi       |   63 |   2 |
+|   27 | pooja   | Marathi       |   60 |   3 |
+|   21 | mohit   | maths         |   85 |   1 |
+|   33 | swapnil | Maths         |   85 |   1 |
+|   25 | vikas   | mining        |   71 |   1 |
+|   26 | mohit   | physics       |   93 |   1 |
+|   38 | Pranay  | Physics       |   88 |   2 |
+|   41 | Modi    | Politics      |   52 |   1 |
+|   24 | vikas   | power         |   80 |   1 |
+|   42 | Kalam   | Satellite     |   77 |   1 |
+|   30 | Pooja   | Vyakaran      |   98 |   1 |
+|   40 | vikrant | Zoology       |   52 |   1 |
+|   31 | Mukesk  | Zoology       |   45 |   2 |
++------+---------+---------------+------+-----+
+22 rows in set (0.00 sec)
+
+mysql> rank () over (partition by subject order by aank desc) as rnk
+    -> ^C
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK
+FROM STUD' at line 3
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK
+FROM STUD' at line 3
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk,
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK,
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM STUDENTS S' at line 4
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk,
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK,
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM STUDENTS S' at line 4
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk,
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK
+    -> FROM STUDENTS S;
++------+---------+---------------+------+-----+---------+
+| roll | name    | subject       | aank | rnk | DNS_RNK |
++------+---------+---------------+------+-----+---------+
+|   37 | Pratik  | Biology       |   90 |   1 |       1 |
+|   28 | pratik  | Biology       |   79 |   2 |       2 |
+|   35 | Pooja   | Biology       |   71 |   3 |       3 |
+|   36 | Kalyani | Biology       |   54 |   4 |       4 |
+|   29 | Rohit   | English       |   95 |   1 |       1 |
+|   23 | kalyani | English       |   78 |   2 |       2 |
+|   22 | pooja   | hindi         |   63 |   1 |       1 |
+|   32 | Divya   | Life Sciences |  100 |   1 |       1 |
+|   34 | Rahul   | Marathi       |   71 |   1 |       1 |
+|   39 | Pratik  | Marathi       |   63 |   2 |       2 |
+|   27 | pooja   | Marathi       |   60 |   3 |       3 |
+|   21 | mohit   | maths         |   85 |   1 |       1 |
+|   33 | swapnil | Maths         |   85 |   1 |       1 |
+|   25 | vikas   | mining        |   71 |   1 |       1 |
+|   26 | mohit   | physics       |   93 |   1 |       1 |
+|   38 | Pranay  | Physics       |   88 |   2 |       2 |
+|   41 | Modi    | Politics      |   52 |   1 |       1 |
+|   24 | vikas   | power         |   80 |   1 |       1 |
+|   42 | Kalam   | Satellite     |   77 |   1 |       1 |
+|   30 | Pooja   | Vyakaran      |   98 |   1 |       1 |
+|   40 | vikrant | Zoology       |   52 |   1 |       1 |
+|   31 | Mukesk  | Zoology       |   45 |   2 |       2 |
++------+---------+---------------+------+-----+---------+
+22 rows in set (0.00 sec)
+
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as rnk,
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNS_RNK,
+    -> ROW_NUMBER() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS ROW_NUMBER
+    -> FROM STUDENTS;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ROW_NUMBER
+FROM STUDENTS' at line 4
+mysq
+
+
+---------------------
+
+    -> FROM STUDENTS;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ROW_NUMBER
+FROM STUDENTS' at line 4
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as RANK,
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DENSE_RANK,
+    -> ROW_NUMBER() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS ROW_NUMBER
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'RANK,
+DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DENSE_RANK,' at line 2
+mysql> select s.*,
+    -> rank () over (partition by subject order by aank desc) as RNK,
+    -> DENSE_RANK() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS DNSE_RNK,
+    -> ROW_NUMBER() OVER (PARTITION BY SUBJECT ORDER BY AANK DESC) AS ROW_NUM
+    -> FROM STUDENTS S;
++------+---------+---------------+------+-----+----------+---------+
+| roll | name    | subject       | aank | RNK | DNSE_RNK | ROW_NUM |
++------+---------+---------------+------+-----+----------+---------+
+|   37 | Pratik  | Biology       |   90 |   1 |        1 |       1 |
+|   28 | pratik  | Biology       |   79 |   2 |        2 |       2 |
+|   35 | Pooja   | Biology       |   71 |   3 |        3 |       3 |
+|   36 | Kalyani | Biology       |   54 |   4 |        4 |       4 |
+|   29 | Rohit   | English       |   95 |   1 |        1 |       1 |
+|   23 | kalyani | English       |   78 |   2 |        2 |       2 |
+|   22 | pooja   | hindi         |   63 |   1 |        1 |       1 |
+|   32 | Divya   | Life Sciences |  100 |   1 |        1 |       1 |
+|   34 | Rahul   | Marathi       |   71 |   1 |        1 |       1 |
+|   39 | Pratik  | Marathi       |   63 |   2 |        2 |       2 |
+|   27 | pooja   | Marathi       |   60 |   3 |        3 |       3 |
+|   21 | mohit   | maths         |   85 |   1 |        1 |       1 |
+|   33 | swapnil | Maths         |   85 |   1 |        1 |       2 |
+|   25 | vikas   | mining        |   71 |   1 |        1 |       1 |
+|   26 | mohit   | physics       |   93 |   1 |        1 |       1 |
+|   38 | Pranay  | Physics       |   88 |   2 |        2 |       2 |
+|   41 | Modi    | Politics      |   52 |   1 |        1 |       1 |
+|   24 | vikas   | power         |   80 |   1 |        1 |       1 |
+|   42 | Kalam   | Satellite     |   77 |   1 |        1 |       1 |
+|   30 | Pooja   | Vyakaran      |   98 |   1 |        1 |       1 |
+|   40 | vikrant | Zoology       |   52 |   1 |        1 |       1 |
+|   31 | Mukesk  | Zoology       |   45 |   2 |        2 |       2 |
++------+---------+---------------+------+-----+----------+---------+
+22 rows in set (0.00 sec)
+
+mysql> # DRAW ABOVE WITH REPEATED MARKS RECORD FOR UNDERSTANDING
+mysql>
+mysql>
+mysql> # LEAD AND LAG
+mysql>
+mysql> # TO KNOW THAT WETHER MARK OF A STUDENT IS HIGHER, LOWER OR EQUAL TO THE PREVIOUS STUDENT
+mysql>
+mysql> select s.*,
+    -> LAG (SALARY) OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> FROM STUDENTS S;
+ERROR 1054 (42S22): Unknown column 'SALARY' in 'field list'
+mysql> select s.*,
+    -> LAG (AANK) OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> FROM STUDENTS S;
++------+---------+---------------+------+------------+
+| roll | name    | subject       | aank | PRE_RECORD |
++------+---------+---------------+------+------------+
+|   28 | pratik  | Biology       |   79 |       NULL |
+|   35 | Pooja   | Biology       |   71 |         79 |
+|   36 | Kalyani | Biology       |   54 |         71 |
+|   37 | Pratik  | Biology       |   90 |         54 |
+|   23 | kalyani | English       |   78 |       NULL |
+|   29 | Rohit   | English       |   95 |         78 |
+|   22 | pooja   | hindi         |   63 |       NULL |
+|   32 | Divya   | Life Sciences |  100 |       NULL |
+|   27 | pooja   | Marathi       |   60 |       NULL |
+|   34 | Rahul   | Marathi       |   71 |         60 |
+|   39 | Pratik  | Marathi       |   63 |         71 |
+|   21 | mohit   | maths         |   85 |       NULL |
+|   33 | swapnil | Maths         |   85 |         85 |
+|   25 | vikas   | mining        |   71 |       NULL |
+|   26 | mohit   | physics       |   93 |       NULL |
+|   38 | Pranay  | Physics       |   88 |         93 |
+|   41 | Modi    | Politics      |   52 |       NULL |
+|   24 | vikas   | power         |   80 |       NULL |
+|   42 | Kalam   | Satellite     |   77 |       NULL |
+|   30 | Pooja   | Vyakaran      |   98 |       NULL |
+|   31 | Mukesk  | Zoology       |   45 |       NULL |
+|   40 | vikrant | Zoology       |   52 |         45 |
++------+---------+---------------+------+------------+
+22 rows in set (0.00 sec)
+
+mysql> select s.*,
+    -> LAG (SALARY, 2, 0) OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> FROM STUDENTS S;
+ERROR 1054 (42S22): Unknown column 'SALARY' in 'field list'
+mysql> select s.*,
+    -> LAG (AANK, 2, 0) OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> FROM STUDENTS S;
++------+---------+---------------+------+------------+
+| roll | name    | subject       | aank | PRE_RECORD |
++------+---------+---------------+------+------------+
+|   28 | pratik  | Biology       |   79 |          0 |
+|   35 | Pooja   | Biology       |   71 |          0 |
+|   36 | Kalyani | Biology       |   54 |         79 |
+|   37 | Pratik  | Biology       |   90 |         71 |
+|   23 | kalyani | English       |   78 |          0 |
+|   29 | Rohit   | English       |   95 |          0 |
+|   22 | pooja   | hindi         |   63 |          0 |
+|   32 | Divya   | Life Sciences |  100 |          0 |
+|   27 | pooja   | Marathi       |   60 |          0 |
+|   34 | Rahul   | Marathi       |   71 |          0 |
+|   39 | Pratik  | Marathi       |   63 |         60 |
+|   21 | mohit   | maths         |   85 |          0 |
+|   33 | swapnil | Maths         |   85 |          0 |
+|   25 | vikas   | mining        |   71 |          0 |
+|   26 | mohit   | physics       |   93 |          0 |
+|   38 | Pranay  | Physics       |   88 |          0 |
+|   41 | Modi    | Politics      |   52 |          0 |
+|   24 | vikas   | power         |   80 |          0 |
+|   42 | Kalam   | Satellite     |   77 |          0 |
+|   30 | Pooja   | Vyakaran      |   98 |          0 |
+|   31 | Mukesk  | Zoology       |   45 |          0 |
+|   40 | vikrant | Zoology       |   52 |          0 |
++------+---------+---------------+------+------------+
+22 rows in set (0.00 sec)
+
+mysql> select s.*,
+    -> LAG (SALARY, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> FROM STUDENTS S;
+ERROR 1054 (42S22): Unknown column 'SALARY' in 'field list'
+mysql> select s.*,
+    -> LAG (AANK, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> FROM STUDENTS S;
++------+---------+---------------+------+------------+
+| roll | name    | subject       | aank | PRE_RECORD |
++------+---------+---------------+------+------------+
+|   28 | pratik  | Biology       |   79 | WAISALABAI |
+|   35 | Pooja   | Biology       |   71 | WAISALABAI |
+|   36 | Kalyani | Biology       |   54 | 79         |
+|   37 | Pratik  | Biology       |   90 | 71         |
+|   23 | kalyani | English       |   78 | WAISALABAI |
+|   29 | Rohit   | English       |   95 | WAISALABAI |
+|   22 | pooja   | hindi         |   63 | WAISALABAI |
+|   32 | Divya   | Life Sciences |  100 | WAISALABAI |
+|   27 | pooja   | Marathi       |   60 | WAISALABAI |
+|   34 | Rahul   | Marathi       |   71 | WAISALABAI |
+|   39 | Pratik  | Marathi       |   63 | 60         |
+|   21 | mohit   | maths         |   85 | WAISALABAI |
+|   33 | swapnil | Maths         |   85 | WAISALABAI |
+|   25 | vikas   | mining        |   71 | WAISALABAI |
+|   26 | mohit   | physics       |   93 | WAISALABAI |
+|   38 | Pranay  | Physics       |   88 | WAISALABAI |
+|   41 | Modi    | Politics      |   52 | WAISALABAI |
+|   24 | vikas   | power         |   80 | WAISALABAI |
+|   42 | Kalam   | Satellite     |   77 | WAISALABAI |
+|   30 | Pooja   | Vyakaran      |   98 | WAISALABAI |
+|   31 | Mukesk  | Zoology       |   45 | WAISALABAI |
+|   40 | vikrant | Zoology       |   52 | WAISALABAI |
++------+---------+---------------+------+------------+
+22 rows in set (0.00 sec)
+
+mysql> select s.*,
+    -> LAG (SALARY, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD,
+    -> LEAD (SALARY, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS NEXT_RECORD
+    -> FROM STUDENTS S;
+ERROR 1054 (42S22): Unknown column 'SALARY' in 'field list'
+mysql> select s.*,
+    -> LAG (AANK, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD
+    -> LEAD (AANK, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS NEXT_RECORD
+    -> FROM STUDENTS S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LEAD (AANK, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS NEXT_R' at line 3
+mysql> select s.*,
+    -> LAG (AANK, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS PRE_RECORD,
+    -> LEAD (AANK, 2, "WAISALABAI") OVER (PARTITION BY SUBJECT ORDER BY ROLL) AS NEXT_RECORD
+    -> FROM STUDENTS S;
++------+---------+---------------+------+------------+-------------+
+| roll | name    | subject       | aank | PRE_RECORD | NEXT_RECORD |
++------+---------+---------------+------+------------+-------------+
+|   28 | pratik  | Biology       |   79 | WAISALABAI | 54          |
+|   35 | Pooja   | Biology       |   71 | WAISALABAI | 90          |
+|   36 | Kalyani | Biology       |   54 | 79         | WAISALABAI  |
+|   37 | Pratik  | Biology       |   90 | 71         | WAISALABAI  |
+|   23 | kalyani | English       |   78 | WAISALABAI | WAISALABAI  |
+|   29 | Rohit   | English       |   95 | WAISALABAI | WAISALABAI  |
+|   22 | pooja   | hindi         |   63 | WAISALABAI | WAISALABAI  |
+|   32 | Divya   | Life Sciences |  100 | WAISALABAI | WAISALABAI  |
+|   27 | pooja   | Marathi       |   60 | WAISALABAI | 63          |
+|   34 | Rahul   | Marathi       |   71 | WAISALABAI | WAISALABAI  |
+|   39 | Pratik  | Marathi       |   63 | 60         | WAISALABAI  |
+|   21 | mohit   | maths         |   85 | WAISALABAI | WAISALABAI  |
+|   33 | swapnil | Maths         |   85 | WAISALABAI | WAISALABAI  |
+|   25 | vikas   | mining        |   71 | WAISALABAI | WAISALABAI  |
+|   26 | mohit   | physics       |   93 | WAISALABAI | WAISALABAI  |
+|   38 | Pranay  | Physics       |   88 | WAISALABAI | WAISALABAI  |
+|   41 | Modi    | Politics      |   52 | WAISALABAI | WAISALABAI  |
+|   24 | vikas   | power         |   80 | WAISALABAI | WAISALABAI  |
+|   42 | Kalam   | Satellite     |   77 | WAISALABAI | WAISALABAI  |
+|   30 | Pooja   | Vyakaran      |   98 | WAISALABAI | WAISALABAI  |
+|   31 | Mukesk  | Zoology       |   45 | WAISALABAI | WAISALABAI  |
+|   40 | vikrant | Zoology       |   52 | WAISALABAI | WAISALABAI  |
++------+---------+---------------+------+------------+-------------+
+22 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
